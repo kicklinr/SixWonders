@@ -6,7 +6,7 @@
 2. Make sure you do all the heroku setup stuff, like logging in via the cli
 3. Add heroku as a remote: `heroku git:remote -a infinite-meadow-7322`
 4. In order to push to heroku, do `git push heroku master`
-5. View heroku app here: `https://fathomless-plains-2530.herokuapp.com/`
+5. View heroku app here: `https://infinite-meadow-7322.herokuapp.com/`
 ## Installation:
 * Note: If you're using Mac OSX, many of these installs will be easier with [Homebrew]().
 1. You're going to need [nodejs](https://nodejs.org/en/download/) installed.

@@ -3,3 +3,15 @@ body {
     -webkit-font-smoothing: auto;
 }
 
+.selector {
+    background-color: $gray-base;
+    .another-selector {
+
+    }
+    &.another-selector {
+
+    }
+}
+
+.selector.another-selector {
+}
