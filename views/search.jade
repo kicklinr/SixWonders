@@ -1,6 +1,19 @@
 extends inc/layout
 
 block content
+  //- div.container
+  //-   form(name='citation_no_form', action='/citation/search')
+  //-     label Citation number:&nbsp;
+  //-     input(type='hidden', name='searchId', value='1')
+  //-     input(type='text', name='driverLicense')
+  //-     br
+  //-     br
+  //-     label Last name:&nbsp;
+  //-     input(type='text', name='lastName')
+  //-     br
+  //-     br
+  //-     input(type='submit' value='Search')
+  
   // Start Banner
   #banner
     .banner-inner
@@ -26,64 +39,53 @@ block content
                 .banner-form-label
                   label(for="search_id")
                   | AND
-                input#search_id.form-control(name='search_id', type='text', required='', placeholder='Last Name')
+                input#search_id.form-control(name='searchId', type='text', required='', placeholder='Last Name')
               .form-group.col-md-3
                 .banner-form-label
                   label(for="citation_no")
                   | AND
-                input#citation_no.form-control(name='citation_no', type='text', placeholder='Citation #')
+                input#citation_no.form-control(name='citationNumber', type='text', placeholder='Citation #')
               .form-group.col-md-3
                 .banner-form-label
                   label(for="last_name")
                   | AND
-                input#last_name.form-control(name='last_name', type='text', placeholder='Drivers License / ID #')
+                input#last_name.form-control(name='lastName', type='text', placeholder='Drivers License / ID #')
               .form-group.col-md-3
                 button.btn.btn-default.btn-submit(type='submit') Find Your Citation
       hr
-  //- div.container
-  //-   form(name='citation_no_form', action='/citation')
-  //-     label Citation number:&nbsp;
-  //-     input(type='hidden', name='search_id', value='1')
-  //-     input(type='text', name='citation_no')
-  //-     br
-  //-     br
-  //-     label Last name:&nbsp;
-  //-     input(type='text', name='last_name')
-  //-     br
-  //-     br
-  //-     input(type='submit' value='Search')
 
   //-   br
   //-   br
 
-  //-   form(name='first_last_dob_form', action='/citation')
-  //-     input(type='hidden', name='search_id', value='2')
-  //-     label Last name:&nbsp;
-  //-     input(type='text', name='last_name')
-  //-     br
-  //-     br
-  //-     label First name:&nbsp;
-  //-     input(type='text', name='first_name')
-  //-     br
-  //-     br
-  //-     label DOB:&nbsp;
-  //-     input(type='date', name='dob')
-  //-     br
-  //-     br
-  //-     input(type='submit' value='Search')
+  //- form(name='first_last_dob_form', action='/citation')
+  //-   input(type='hidden', name='searchId', value='2')
+  //-   label Last name:&nbsp;
+  //-   input(type='text', name='lastName')
+  //-   br
+  //-   br
+  //-   label First name:&nbsp;
+  //-   input(type='text', name='firstName')
+  //-   br
+  //-   br
+  //-   label DOB:&nbsp;
+  //-   input(type='date', name='dob')
+  //-   br
+  //-   br
+  //-   input(type='submit' value='Search')
+
 
   //-   br
   //-   br
 
-  //-   form(name='driver_form', action='/citation')
-  //-     input(type='hidden', name='search_id', value='3')
-  //-     label Driver's license:&nbsp;
-  //-     input(type='text', name='drivers_lic')
-  //-     br
-  //-     br
-  //-     label Last name:&nbsp;
-  //-     input(type='text', name='last_name')
-  //-     br
-  //-     br
-  //-     input(type='submit' value='Search')
+  //- form(name='driver_form', action='/citation')
+  //-   input(type='hidden', name='searchId', value='3')
+  //-   label Driver's license:&nbsp;
+  //-   input(type='text', name='driverLicense')
+  //-   br
+  //-   br
+  //-   label Last name:&nbsp;
+  //-   input(type='text', name='lastName')
+  //-   br
+  //-   br
+  //-   input(type='submit' value='Search')
 
