@@ -33,6 +33,10 @@ ALTER TABLE ticket_feedback ADD gender TEXT;
 
 ALTER TABLE ticket_feedback ADD UNIQUE (hashed_citation_number);
 
+ALTER TABLE ticket_feedback ADD def_city TEXT;
+ALTER TABLE ticket_feedback ADD def_state TEXT;
+ALTER TABLE ticket_feedback DROP zip;
+
 INSERT INTO ticket_feedback(hashed_citation_number, age, race, zip, incomeRange, violation_description, municipality, optional_comment, experience_rating)
 VALUES ($1::text, $2::integer, $3::text, $4::text, $5::integer, $6::text, $7::text, $8::text, $9::integer);
 
@@ -55,6 +59,10 @@ CREATE TABLE court_feedback (
 ALTER TABLE court_feedback ADD gender TEXT;
 
 ALTER TABLE court_feedback ADD UNIQUE (hashed_citation_number);
+
+ALTER TABLE court_feedback ADD def_city TEXT;
+ALTER TABLE court_feedback ADD def_state TEXT;
+ALTER TABLE court_feedback DROP zip;
 
 INSERT INTO court_feedback(hashed_citation_number, age, race, zip, incomeRange, violation_description, municipality,
   checkin_time, appearance_time, attorney, optional_comment, experience_rating)
