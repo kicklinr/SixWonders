@@ -1,6 +1,41 @@
-doctype html
-html
-  include inc/header
+doctype //if lt IE 7 
+html.ie.ie6(lang='en')  
+//if IE 7 
+html.ie.ie7(lang='en')  
+//if IE 8 
+  html.ie.ie8(lang='en')  
+// [if (gte IE 9)|!(IE)] <!
+html(lang='en')
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    | &#x9;
+    title Sales - Multipurpose HTML5 Landing Page
+    | &#x9;
+    meta(name='author', content='')
+    | &#x9;
+    meta(name='keywords', content='')
+    | &#x9;
+    meta(name='description', content='')
+    // Mobile Specific Metas
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    // Libs CSS
+    link(href='css/bootstrap.css', rel='stylesheet')
+    |  &#x9;&#x9;
+    | &#x9;
+    link(href='css/font-awesome.min.css', rel='stylesheet')
+    | &#x9;
+    link(href='css/prettyPhoto.css', rel='stylesheet', type='text/css', media='all')
+    // Template CSS
+    link(href='css/style.css', rel='stylesheet')
+    // Google Fonts
+    link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+    | &#x9;
+    link(href='http://fonts.googleapis.com/css?family=Raleway:400,700,800&subsetting=all', rel='stylesheet', type='text/css')
+    //if lt IE 9
+      script(src='./js/html5shiv.js')
+      | &#x9;&#x9;
+      script(src='./js/respond.js')
   body(data-spy='scroll', data-target='.navigation')
     // Start Header
     header#header
@@ -9,9 +44,9 @@ html
           .navbar-header
             button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
               span.icon-bar
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               span.icon-bar
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               span.icon-bar
             // Start Logo / Text
             a.navbar-brand.text-logo(href='#')
@@ -23,22 +58,22 @@ html
             ul.nav.navbar-nav.menu-right
               li.active
                 a(href='#header') Home
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li
                 a(href='#intro') Intro
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li
                 a(href='#portfolio') Portfolio
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li
                 a(href='#features') Features
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li
                 a(href='#snippets') Snippets
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li
                 a(href='#faq') FAQ
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li
                 a(href='#pricing') Price
           // End Navigation
@@ -53,42 +88,42 @@ html
               h1
                 strong Increase
                 |  Conversion Rates
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p
                 | Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &apos;lorem ipsum&apos; will uncover many web sites still in their infancy
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .row
                 .col-lg-6.col-md-6.col-sm-6
                   ul.green-arrow
                     li Many addon features
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Fully responsive &amp; adaptive
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li SEO optimized
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Full Support
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Fully responsive &amp; adaptive
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 .col-lg-6.col-md-6.col-sm-6
                   ul.green-arrow
                     li Many addon features
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Fully responsive &amp; adaptive
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li SEO optimized
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Full Support
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Fully responsive &amp; adaptive
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 .clearfix
             // End Header Text
             // Start Side Image
             .col-lg-4.col-md-4
               img.img-responsive(src='img/top-img.png', alt='', title='')
             // End Side Image
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .divider50
           // Start Banner Optin Form
           form#banner-form(method='post', action='banner-form.php')
@@ -96,16 +131,16 @@ html
               .row
                 .form-group.col-md-3
                   input#banner-name.form-control(name='banner-name', type='text', required='', placeholder='Your Name')
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 .form-group.col-md-3
                   input#banner-email.form-control(name='banner-email', type='text', required='', placeholder='Your e-mail')
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 .form-group.col-md-3
                   input#banner-phone.form-control(name='banner-phone', type='text', placeholder='Your Phone Number')
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 .form-group.col-md-3
                   button.btn.btn-default.btn-submit(type='submit') Get Your Free Trial
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             .row
               .col-md-12
                 .form-process
@@ -120,25 +155,25 @@ html
           .col-lg-6.col-md-6
             .main-point
               i.fa.fa-cubes
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               h4 Client Oriented
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p
                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             .main-point
               i.fa.fa-male
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               h4 Easy way to capture lead email
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p
                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             .main-point.main-point-last
               i.fa.fa-codepen
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               h4 Easy Adaptable
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p
                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           // End Main Points
@@ -146,43 +181,46 @@ html
           .col-lg-6.col-md-6
             img.img-responsive(src='img/side-img.png', alt='', title='')
           // End Side Image
-        |
+        | &#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;
         hr
         // Content Row
         .row
           .col-lg-6.col-md-6
             img.img-responsive(src='img/side-img.png', alt='', title='')
-          |
+          | &#x9;
+          | &#x9;&#x9;&#x9;&#x9;
           .col-lg-6.col-md-6
             h2 Introductory Text
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             p
               | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             ul.normal-list
               li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut,
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             p
               | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
         // End Content Row
         .divider50
-        |
+        | &#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;
         .row
           .col-lg-4.col-md-4.hidden-xs
             // Left Column : Assistance
             .side-text.text-center
               i.fa.fa-phone.fa-4x
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               h4 Need More Assistance
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p
                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             // End Left Column
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .col-lg-8.col-md-8
             .row
               .highlight
@@ -190,26 +228,26 @@ html
                 .col-lg-6.col-md-6.col-sm-6
                   ul.green-arrow
                     li Many addon features
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Fully responsive &amp; adaptive
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li SEO optimized
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Attractive with a modern touch
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Full Support
                 // End Left Bullet Points
                 // Right Bullet Points
                 .col-lg-6.col-md-6.col-sm-6
                   ul.green-arrow
                     li Many addon features
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Fully responsive &amp; adaptive
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li SEO optimized
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Attractive with a modern touch
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Full Support
                 // End Right Bullet Points
                 .clearfix
@@ -221,9 +259,9 @@ html
           .col-lg-12
             .headline
               h1 Our Work
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
-        |
+        | &#x9;&#x9;&#x9;
         .row
           .col-xs-6.col-sm-6.col-md-3
             // Start Portfolio Item
@@ -237,7 +275,7 @@ html
                 h3 Item Description
                 // Image Description
             // End Portfolio Item
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .col-xs-6.col-sm-6.col-md-3
             // Start Portfolio Item
             .hover-details
@@ -250,7 +288,7 @@ html
                 h3 Item Description
                 // Image Description
             // End Portfolio Item
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .col-xs-6.col-sm-6.col-md-3
             // Start Portfolio Item
             .hover-details
@@ -263,7 +301,7 @@ html
                 h3 Item Description
                 // Image Description
             // End Portfolio Item
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .col-xs-6.col-sm-6.col-md-3
             // Start Portfolio Item
             .hover-details
@@ -276,7 +314,7 @@ html
                 h3 Item Description
                 // Image Description
             // End Portfolio Item
-        |
+        | &#x9;&#x9;&#x9;
         .row
           .col-xs-6.col-sm-6.col-md-3
             // Start Portfolio Item
@@ -290,7 +328,7 @@ html
                 h3 Item Description
                 // Image Description
             // End Portfolio Item
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .col-xs-6.col-sm-6.col-md-3
             // Start Portfolio Item
             .hover-details
@@ -303,7 +341,7 @@ html
                 h3 Item Description
                 // Image Description
             // End Portfolio Item
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .col-xs-6.col-sm-6.col-md-3
             // Start Portfolio Item
             .hover-details
@@ -316,7 +354,7 @@ html
                 h3 Item Description
                 // Image Description
             // End Portfolio Item
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .col-xs-6.col-sm-6.col-md-3
             // Start Portfolio Item
             .hover-details
@@ -339,11 +377,11 @@ html
               h1
                 strong Best Top
                 |  Features
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
-        |
+        | &#x9;&#x9;&#x9;
         .divider35
-        |
+        | &#x9;&#x9;&#x9;
         .row
           // Features Listing
           .col-lg-8.col-md-8
@@ -368,7 +406,7 @@ html
                   p Lorem Ipsum has been the industry&apos;s standard dummy text since the 1500s.
                   // Features Details
               // End Features List
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             .row
               .col-lg-6.col-md-6
                 // Features List
@@ -390,7 +428,7 @@ html
                   p Lorem Ipsum has been the industry&apos;s standard dummy text since the 1500s.
                   // Features Details
               // End Features List
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             .row.last-row
               // Features List
               .col-lg-6.col-md-6
@@ -417,12 +455,13 @@ html
           .col-lg-4.col-md-4
             img.img-responsive(src='img/side-img2.png', alt='', title='')
           // End Side Features Image
-        |
+        | &#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;
         .row
           .col-lg-12
             .alert.alert-info
               a.close(href='#', data-dismiss='alert') &times;
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               strong Note!
               |  You can change the layout into 3 columns with all services icons instead of only 2 columns.
     // End Features
@@ -432,10 +471,10 @@ html
         .row
           .col-lg-12
             h2.text-center What if there were more features ?
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             p
               | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
-        |
+        | &#x9;&#x9;&#x9;
         .row
           // More Feature Column
           .col-lg-4.col-md-4.col-sm-4.feature
@@ -447,14 +486,14 @@ html
               // Features Details
               p
                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               ul.green-arrow
                 li Many addon features
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li Fully responsive &amp; adaptive
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li SEO optimized
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li Attractive with a modern touch
           // End More Feature Column
           // More Feature Column
@@ -467,14 +506,14 @@ html
               // Features Details
               p
                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               ul.green-arrow
                 li Many addon features
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li Fully responsive &amp; adaptive
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li SEO optimized
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li Attractive with a modern touch
           // End More Feature Column
           // More Feature Column
@@ -487,14 +526,14 @@ html
               // Features Details
               p
                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               ul.green-arrow
                 li Many addon features
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li Fully responsive &amp; adaptive
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li SEO optimized
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li Attractive with a modern touch
           // End More Feature Column
     // End More Features
@@ -505,9 +544,9 @@ html
           .col-lg-12
             .headline
               h1
-                | Quick
+                | Quick 
                 strong Snippets
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
         // Start Tabs
         .row
@@ -527,7 +566,8 @@ html
                 i.fa.fa-group
                 |  The Team
             // Tab #3
-          |
+          | &#x9;&#x9;&#x9;
+          | &#x9;&#x9;&#x9;&#x9;
           .tab-content
             // Introductory Video
             #first-tab.tab-pane.active
@@ -540,20 +580,21 @@ html
               .row
                 .col-lg-6.col-md-6
                   img.img-responsive(src='img/side-img.png', alt='', title='')
-                |
+                | &#x9;
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 .col-lg-6.col-md-6
                   h2 Introductory Text
-                  |
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                   p
                     | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
-                  |
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                   ul.normal-list
                     li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     li Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut,
-                  |
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                   p
                     | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
             // End Random Text
@@ -574,66 +615,66 @@ html
                       li
                         a(href='mailto:mail@example.com')
                           i.fa.fa-envelope.fa-fw
-                      |
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                       li
                         a(href='#')
                           i.fa.fa-twitter.fa-fw
-                      |
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                       li
                         a(href='#')
                           i.fa.fa-facebook.fa-fw
-                      |
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                       li
                         a(href='#')
                           i.fa.fa-linkedin.fa-fw
                   // End Member Details
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 .col-lg-4.col-md-4.col-sm-4.members-holder
                   .members-detail
                     img.img-responsive(src='img/thumb2.png', alt='', title='')
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     h4 Sarah Mchaul
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     p Graphic Designer &amp; UI Expert
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     ul.members-social
                       li
                         a(href='mailto:mail@example.com')
                           i.fa.fa-envelope.fa-fw
-                      |
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                       li
                         a(href='#')
                           i.fa.fa-twitter.fa-fw
-                      |
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                       li
                         a(href='#')
                           i.fa.fa-facebook.fa-fw
-                      |
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                       li
                         a(href='#')
                           i.fa.fa-linkedin.fa-fw
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 .col-lg-4.col-md-4.col-sm-4.members-holder
                   .members-detail
                     img.img-responsive(src='img/thumb2.png', alt='', title='')
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     h4 Sales
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     p Lead Web Designer
-                    |
+                    | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                     ul.members-social
                       li
                         a(href='mailto:mail@example.com')
                           i.fa.fa-envelope.fa-fw
-                      |
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                       li
                         a(href='#')
                           i.fa.fa-twitter.fa-fw
-                      |
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                       li
                         a(href='#')
                           i.fa.fa-facebook.fa-fw
-                      |
+                      | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                       li
                         a(href='#')
                           i.fa.fa-linkedin.fa-fw
@@ -649,10 +690,10 @@ html
               h1
                 strong Subscribe
                 |  Freely
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p
                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
-        |
+        | &#x9;&#x9;&#x9;
         .row
           .col-lg-12
             // Subscribe Form
@@ -661,16 +702,16 @@ html
                 .row
                   .form-group.col-lg-3
                     input#middle-optin-name.form-control(name='middle-optin-name', type='text', required='', placeholder='Your Name')
-                  |
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                   .form-group.col-lg-3
                     input#middle-optin-email.form-control(name='middle-optin-email', type='text', required='', placeholder='Your E-mail')
-                  |
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                   .form-group.col-lg-3
                     input#middle-optin-phone.form-control(name='middle-optin-phone', type='text', placeholder='Your Phone Phone')
-                  |
+                  | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                   .form-group.col-lg-3
                     button.btn.btn-default.black-btn(type='submit') Subscribe Now
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .row
                 .col-md-12
                   .form-process-middle
@@ -683,11 +724,11 @@ html
           .col-lg-12
             .headline
               h1
-                | Awesome
+                | Awesome 
                 strong Testimonials
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
-        |
+        | &#x9;&#x9;&#x9;
         .row
           .col-md-12
             // Start Testimonial Slider
@@ -717,7 +758,8 @@ html
                         // Tesimonial
                         small Someone famous
                         // Testimonial Author
-                |
+                | &#x9;&#x9;&#x9;&#x9;
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 .item
                   .row
                     .col-lg-12
@@ -732,9 +774,9 @@ html
               // Testimonial Navigation
               ol.carousel-indicators
                 li.active(data-target='#testimonial', data-slide-to='0')
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li(data-target='#testimonial', data-slide-to='1')
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li(data-target='#testimonial', data-slide-to='2')
               // End Testimonial Navigation
     // End Testimonials
@@ -750,19 +792,19 @@ html
             li.col-md-2.col-sm-2
               a(href='#')
                 img(src='img/logo2.png', alt='', title='')
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
             li.col-md-2.col-sm-2
               a(href='#')
                 img(src='img/logo3.png', alt='', title='')
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
             li.col-md-2.col-sm-2
               a(href='#')
                 img(src='img/logo4.png', alt='', title='')
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
             li.col-md-2.col-sm-2
               a(href='#')
                 img(src='img/logo1.png', alt='', title='')
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
             li.col-md-2.col-sm-2
               a(href='#')
                 img(src='img/logo2.png', alt='', title='')
@@ -774,9 +816,9 @@ html
           .col-lg-12
             .headline
               h1 Frequently Asked Questions
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
-        |
+        | &#x9;&#x9;&#x9;
         .row
           .col-lg-7.col-md-7
             // Faq 1
@@ -787,9 +829,8 @@ html
                     i.fa.fa-plus-square
                     | What&apos;s the guarantee period ?
                 // Faq Title
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               #faq1.panel-collapse.collapse.in
-                .panel-body
                   // Faq Content
                   p
                     | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
@@ -802,7 +843,8 @@ html
                     i.fa.fa-plus-square
                     | Can I buy this template and sell it ?
                 // Faq Title
-              |
+              |                 
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               #faq2.panel-collapse.collapse
                 .panel-body
                   // Faq Content
@@ -817,7 +859,8 @@ html
                     i.fa.fa-plus-square
                     | 24/7 support system available ?
                 // Faq Title
-              |
+              |                 
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               #faq3.panel-collapse.collapse
                 .panel-body
                   // Faq Content
@@ -832,7 +875,8 @@ html
                     i.fa.fa-plus-square
                     | Why am I asking so many questions ?
                 // Faq Title
-              |
+              | &#x9;&#x9;
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               #faq4.panel-collapse.collapse
                 .panel-body
                   // Faq Content
@@ -847,14 +891,15 @@ html
                     i.fa.fa-plus-square
                     | Is it mobile-friendly ?
                 // Faq Title
-              |
+              |                 
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               #faq5.panel-collapse.collapse
                 .panel-body
                   // Faq Content
                   p
                     | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
             // End Faq 5
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .col-lg-5.col-md-5
             img.img-responsive(src='img/side-img2.png', alt='', title='')
             // Side Image
@@ -866,11 +911,14 @@ html
           .col-lg-12
             .headline
               h1 Pricing
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
-        |
+        | &#x9;
+        | &#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;
         .divider50
-        |
+        | &#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;
         .row
           // Price Column #1
           .col-sm-4.pricing-container
@@ -880,7 +928,7 @@ html
               h3
                 | $14
                 sup .99
-                |
+                |  
                 span / month
               // Price
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
@@ -888,22 +936,22 @@ html
               // Package Features
               ul
                 li
-                  | Lorem ipsum dolor
+                  | Lorem ipsum dolor 
                   i.fa.fa-check
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
                   del Sit amet, consectetur nam
-                  |
+                  |  
                   i.fa.fa-times.red-color
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
                   del Magna adipiscing elit nam dui
-                  |
+                  |  
                   i.fa.fa-times.red-color
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
                   del Lacus ut accumsan sed
-                  |
+                  |  
                   i.fa.fa-times.red-color
               // End Package Features
               .price-bottom
@@ -918,7 +966,7 @@ html
               h3
                 | $25
                 sup .99
-                |
+                |  
                 span / month
               // Price
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
@@ -926,23 +974,23 @@ html
               // Package Features
               ul
                 li
-                  | Lorem ipsum dolor
+                  | Lorem ipsum dolor 
                   i.fa.fa-check
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
-                  | Lacus ut accumsan sed
+                  | Lacus ut accumsan sed 
                   i.fa.fa-check
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
-                  | Sit amet, consectetur nam
+                  | Sit amet, consectetur nam 
                   i.fa.fa-check
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
                   | Magna adipiscing elit nam dui
                   i.fa.fa-check
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
-                  | Lacus ut accumsan sed
+                  | Lacus ut accumsan sed 
                   i.fa.fa-check
               // End Package Features
               .price-bottom
@@ -957,7 +1005,7 @@ html
               h3
                 | $39
                 sup .99
-                |
+                |  
                 span / month
               // Price
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
@@ -965,32 +1013,32 @@ html
               // Package Features
               ul
                 li
-                  | Lorem ipsum dolor
+                  | Lorem ipsum dolor 
                   i.fa.fa-check
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
                   del Sit amet, consectetur nam
-                  |
+                  |  
                   i.fa.fa-times.red-color
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
                   | Magna adipiscing elit nam dui
                   i.fa.fa-check
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
                   del Lacus ut accumsan sed
-                  |
+                  |  
                   i.fa.fa-times.red-color
               // End Package Features
               .price-bottom
                 a.btn.btn-default.price-btn(href='#') Get Started
                 // Buy Button
           // End Price Column #1
-        |
+        | &#x9;&#x9;&#x9;
         .row
           .col-md-8.col-md-offset-2.text-center
             p.lead
-              | Need a
+              | Need a 
               strong customized
               |  plan ? Get in Touch, we will tailor you one.
     // End Pricing
@@ -1001,15 +1049,15 @@ html
           .col-lg-12
             .headline
               h1
-                | Get
+                | Get 
                 strong Started
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p Sign up and get our latest updates and product release
-        |
+        | &#x9;&#x9;&#x9;
         .row
           .col-lg-12.text-center
             a.btn.btn-primary.btn-lg.btn-bluebg(href='#') Get started
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             a.btn.btn-default.btn-lg.btn-bluenobg(href='#') Take tour
     // End Subscribe
     footer#footer.section.nopadding-bottom
@@ -1018,27 +1066,27 @@ html
           // Footer About Description
           .col-md-3.col-sm-6
             h4 About Landing Page
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             p
               | Default text creates the illusion of real text. If it is not real text, they will focus on the design.
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             hr
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             h4 Quick Links
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             ul.quick-links
               li
                 a(href='#') Contact
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li
                 a(href='#') Disclaimer
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li
                 a(href='#') Terms &amp; Conditions
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li
                 a(href='#') Privacy Policy
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               li
                 a(href='#') Support
           // End Footer About Description
@@ -1046,24 +1094,25 @@ html
           .col-md-4.col-sm-6
             .contact-info
               h4 Where to find us
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               p Nam leo lorem, tincidunt id risus ut, ornare tincidunt naqunc.
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               ul.contact-list
                 li
                   i.fa.fa-map-marker
                   | Somewhere Somewhere, Mauritius
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
                   i.fa.fa-phone
                   | + 230 5 8268494
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li
                   i.fa.fa-envelope-o
                   a(href='mailto:contact@simplesphere.net.com') contact@simplesphere.net
             // End Contact Details
             hr
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             .social
               h4 Follow us
               // Start  Social Links
@@ -1071,64 +1120,77 @@ html
                 li.facebook
                   a(href='#')
                     i.fa.fa-facebook
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li.twitter
                   a(href='#')
                     i.fa.fa-twitter
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li.google-plus
                   a(href='#')
                     i.fa.fa-google-plus
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li.linkedin
                   a(href='#')
                     i.fa.fa-linkedin
-                |
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
                 li.youtube
                   a(href='#')
                     i.fa.fa-youtube-play
               // End Social Links
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .col-md-5.bottom-contact
             h4 Get in Touch
-            |
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
             p Nam leo lorem, tincidunt id risus ut, ornare tincidunt naqunc.
             // Start Contact Form
             form#contact-form.contact-form(method='post', action='contact-form.php')
               .form-group
                 input#contact-name.form-control(name='contact-name', type='text', placeholder='Name')
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .form-group
                 input#contact-email.form-control(name='contact-email', type='text', placeholder='Your e-mail')
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .form-group
                 input#contact-phone.form-control(name='contact-phone', type='text', placeholder='Phone')
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .form-group
                 textarea#contact-message.form-control(name='contact-message', placeholder='Message')
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .form-group
                 button.btn.btn-default.btn-submit(type='submit') Submit
-              |
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .row
                 .col-md-12
                   .form-process-contact
             // End Contact Form
-      |
+      | &#x9;&#x9;
       .container
         .row.footer-bottom
           .col-lg-6.col-sm-6
             p &copy; Sales Theme. All Right Reserved
-          |
+          | &#x9;&#x9;&#x9;&#x9;
           .col-lg-6.col-sm-6
             p.copyright
-              | Made with
+              | Made with 
               i.fa.fa-heart
-              |  by
+              |  by 
               a(href='http://www.simplesphere.net') Simplesphere
     // Start Scroll To Top
     a.scroll-up(href='#')
       i.fa.fa-arrow-up
     // End Scroll To Top
-
-  include inc/footer
+    // Start Js Files
+    script(type='text/javascript', src='http://code.jquery.com/jquery-2.1.0.min.js')
+    // jQuery is a Javascript library that greatly reduces the amount of code that you must write.
+    script(type='text/javascript').
+      window.jQuery || document.write('<script src="js/jquery-2.1.0.min.js"><\\/script>')
+    | &#x9;
+    script(src='js/bootstrap.min.js', type='text/javascript')
+    // Packed with many functionalies such as carousel slider, responsivity, tabs, drop downs, buttons, and many other features
+    script(src='js/modernizr.min.js', type='text/javascript')
+    // Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
+    script(src='js/jquery.prettyPhoto.js', type='text/javascript')
+    // Script for Lightbox Image
+    script(src='js/custom.js', type='text/javascript')
+    // Script File containing all customizations
+    // End Js Files

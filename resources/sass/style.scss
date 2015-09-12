@@ -3,7 +3,9 @@
 // Custom bootstrap which loads our _variables-custom.scss file
 @import "modules/bootstrap-custom";
 // Font Awesome
-// @import "font-awesome/scss/font-awesome";
+@import "fontawesome/scss/font-awesome";
+// Theme
+@import "theme.scss";
 
 // Partials
 @import "partials/main";
