@@ -137,6 +137,9 @@ div.user-menu div.user-menu-content:not(.active){
 .user-details {
     background: #eee;
     min-height: 333px;
+    dd i {
+      margin-right: 4px;
+    }
 }
 
 .user-image {
