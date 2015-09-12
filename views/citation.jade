@@ -71,7 +71,8 @@ block content
                       i.fa.fa-map-marker
                       a(href="javascript:;")
                         | #{citation.court_address}
-                    button.btn.btn-labeled.btn-info(type='button', href='#')
+                        | #{citation.municipalcourturl}
+                    button.btn.btn-labeled.btn-info(type='button')&attributes({'href': citation.municipalcourturl})
                       span.btn-label
                         i.fa.fa-external-link
                       | Goto Court Website
