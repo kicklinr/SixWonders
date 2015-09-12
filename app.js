@@ -9,8 +9,11 @@ var pg = require('pg-query');
 pg.connectionParameters = "postgres://iltnencxwnrati:69VlHFO9ejuhDno8X21odCthhZ@ec2-107-21-105-116.compute-1.amazonaws.com:5432/d3vatqm4sct45j?ssl=true";
 
 var routes = require('./routes/index');
+
 var users = require('./routes/users');
 var services = require('./routes/services');
+var search = require('./routes/search');
+
 
 var app = express();
 
@@ -33,6 +36,8 @@ app.use(function(req,res,next){
 app.use('/', routes);
 app.use('/users', users);
 app.use('/services', services);
+app.use('/citations', routes);
+app.use('/search', search);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

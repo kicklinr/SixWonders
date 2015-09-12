@@ -3,8 +3,7 @@ var gulp = require('gulp'), 
     notify = require("gulp-notify") ,
     filesize = require('gulp-size'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    jade = require('gulp-jade');
+    uglify = require('gulp-uglify');
 
 var config = {
      sassPath: './resources/sass',
@@ -34,7 +33,7 @@ gulp.task('css', function() { 
          loadPath: [
              config.sassPath + '/partials',
              config.bowerDir + '/bootstrap-sass-official/assets/stylesheets',
-            config.bowerDir + '/bootstrap-material-design/sass',
+            config.bowerDir + '/bootstrap-sass-official/assets/stylesheets/bootstrap',
             config.bowerDir,
          ],
         sourcemap: true
