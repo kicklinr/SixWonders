@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.all('/citation', function(req, res, next) {
     middleware.citationViolationList(req, res, function(){
-      //console.log(res.citations);
+      console.log(res.citations);
       res.render('citation', {
         citations: res.citations
       });
