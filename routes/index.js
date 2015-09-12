@@ -7,9 +7,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.all('/citation', function(req, res, next) {
+    console.log(req.query);
     res.render('citation', {
-        citation: req.body.citation,
-        lastName: req.body.lastName
+        query: req.query
     });
 });
 
