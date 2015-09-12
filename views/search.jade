@@ -1,0 +1,14 @@
+extends inc/layout
+
+block content
+  div.container
+    form(name='citation_no_form', action='/citation')
+      label Citation number:&nbsp;
+      input(type='text', name='citation_no')
+      br
+      br
+      label Last name:&nbsp;
+      input(type='text', name='last_name')
+      br
+      br
+      input(type='submit' value='Search')
