@@ -23,21 +23,25 @@ exports.citationViolationList = function(req, res, next) {
         sqlBase= sqlBase + " AND citations.first_name = $"+count+"::text";
         count = count +1;
     }
-    else if(typeof req.body.dob != 'undefined' && req.body.dob!==''){
+    
+    if (typeof req.body.dob != 'undefined' && req.body.dob!==''){
        values.push(req.body.dob);
-       sqlBase= sqlBase + " AND citations.date_of_birth = $"+count+"::text";
+       sqlBase= sqlBase + " AND to_char(citations.date_of_birth, 'MM/DD/YYYY') = $"+count+"::text";
        count = count +1;
     }
-    else if(typeof req.body.driverLicense != 'undefined'&& req.body.driverLicense!==''){
+    
+    if (typeof req.body.driverLicense != 'undefined'&& req.body.driverLicense!==''){
        values.push(req.body.driverLicense);
        sqlBase= sqlBase + " AND citations.drivers_license_number = $"+count+"::text";
        count = count +1;
     }
-    else if(typeof req.body.citationNum != 'undefined' && req.body.citationNum!==''){
+    
+    if (typeof req.body.citationNum != 'undefined' && req.body.citationNum!==''){
        values.push(req.body.citationNum);
        sqlBase= sqlBase + " AND citations.citation_number = $"+count+"::text";
        count = count +1;
     }
+
     console.log(sqlBase);
     console.log(values);
     query(sqlBase, values, function(err, rows, result) {
