@@ -39,6 +39,16 @@ exports.citationViolationList = function(req, res, next) {
     console.log(values);
     query(sqlBase, values, function(err, rows, result) {
         res.citations = rows;
+
+        // format some dats and stuff.
+        for (var i=0; i < rows.length; i++) {
+            rows[0].court_date = 
+                rows[0].court_date.split(" ")[0] + 
+                rows[0].court_date.split(" ")[1] +
+                rows[0].court_date.split(" ")[2] +
+                rows[0].court_date.split(" ")[3];
+        }
+
         console.log(err);
         next();
     });
