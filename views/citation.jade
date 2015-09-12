@@ -74,7 +74,7 @@ block content
                       | Goto Court Website
                     button#feedbackBtn.btn.btn-labeled.btn-info(type='button' data-toggle="modal" data-citation="${citation_number}" data-target="#feedbackModal") 
                       span.btn-label
-                      i.fa.fa-link
+                        i.fa.fa-link
                       | Give Feedback
               .row.overview
                 .col-md-4.user-pad.text-center
@@ -174,19 +174,27 @@ block content
             .form-title
               h2 Feedback
             .form-body
+              form#banner-form.form(method='post', action='form.php')
+              input#modal-violation(type="hidden")
+              input#modal-violation(type="hidden")
+              input#modal-dob(type="hidden")
+              input#modal-municipality(type="hidden")
+              input#modal-zip(type="hidden")
+              input#modal-gender(type="hidden")
               dl.dl-horizontal
                 dt
-                  h4.white
+                  h4
                     | Citation #: 
                 dd
-                  span#modalCitation
+                  span.modal-citation
                 dt
-                  h4.white
+                  h4
                     | Citation Date: 
                 dd
-                  span#modalCitationDate
+                  span#modal-citationDate
+
               p Lorem ipsum
-              form#banner-form.form(method='post', action='form.php')
+              
                 .form-group
                   input#banner-name.form-control(name='banner-name', type='text', required='', placeholder='Your Name')
                 .form-group
