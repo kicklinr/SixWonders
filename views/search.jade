@@ -32,7 +32,7 @@ block content
   section#search.section
     .container
       .row
-        form#banner-form.form-inline(name='driver_form',method='post', action='/citation')
+        form.form-inline(name='driver_form',method='post', action='/citation')
           input(type='hidden', name='searchId', value='2')
           .banner-optin
             .row
@@ -54,7 +54,7 @@ block content
                 button.btn.btn-default.btn-submit(type='submit') Find Your Citation
       hr
       .row
-        form#banner-form.form-inline(name='citation_no_form',method='post', action='/citation')
+        form.form-inline(name='citation_no_form',method='post', action='/citation')
           input(type='hidden', name='searchId', value='1')
           .banner-optin
             .row
@@ -77,7 +77,7 @@ block content
                 button.btn.btn-default.btn-submit(type='submit') Find Your Citation
       hr
       .row
-        form#banner-form.form-inline(name='first_last_dob_form',method='post', action='/citation')
+        form.form-inline(name='first_last_dob_form',method='post', action='/citation')
           input(type='hidden', name='searchId', value='3')
           .banner-optin
             .row
