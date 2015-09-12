@@ -1,4 +1,9 @@
 # Bootstrapping Bootstrap / Bower / Jade
+## Access
+1. Clone the github remote: ``
+## Heroku
+1. Install heroku toolbelt: ``
+. Add heroku as a remote: `heroku git:remote -a infinite-meadow-7322`
 ## Installation:
 * Note: If you're using Mac OSX, many of these installs will be easier with [Homebrew]().
 1. You're going to need [nodejs](https://nodejs.org/en/download/) installed.
