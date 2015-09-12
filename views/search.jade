@@ -1,50 +1,89 @@
 extends inc/layout
 
 block content
-  div.container
-    form(name='citation_no_form', action='/citation')
-      label Citation number:&nbsp;
-      input(type='hidden', name='search_id', value='1')
-      input(type='text', name='citation_no')
-      br
-      br
-      label Last name:&nbsp;
-      input(type='text', name='last_name')
-      br
-      br
-      input(type='submit' value='Search')
+  // Start Banner
+  #banner
+    .banner-inner
+      .container
+        .row
+          // Start Header Text
+          .col-md-8.header-text
+            h1
+              strong Search
+              |  for your citations.
+            p
+              | We want to help you find your citations no matter which St. Louis area municipality they are in, and regardless if you've lost some of your information. Fill out one of the forms below to search for your citation information.
+          .col-lg-4.col-md-4
+            img.img-responsive(src='img/top-img.png', alt='', title='')
+          // End Side Image
+  section#search.section
+    .container
+      .row
+        form#banner-form.form-inline(name='citation_no_form',method='post', action='/citation')
+          .banner-optin
+            .row
+              .form-group.col-md-3
+                .banner-form-label
+                  label(for="search_id")
+                  | AND
+                input#search_id.form-control(name='search_id', type='text', required='', placeholder='Last Name')
+              .form-group.col-md-3
+                .banner-form-label
+                  label(for="citation_no")
+                  | AND
+                input#citation_no.form-control(name='citation_no', type='text', placeholder='Citation #')
+              .form-group.col-md-3
+                .banner-form-label
+                  label(for="last_name")
+                  | AND
+                input#last_name.form-control(name='last_name', type='text', placeholder='Drivers License / ID #')
+              .form-group.col-md-3
+                button.btn.btn-default.btn-submit(type='submit') Find Your Citation
+      hr
+  //- div.container
+  //-   form(name='citation_no_form', action='/citation')
+  //-     label Citation number:&nbsp;
+  //-     input(type='hidden', name='search_id', value='1')
+  //-     input(type='text', name='citation_no')
+  //-     br
+  //-     br
+  //-     label Last name:&nbsp;
+  //-     input(type='text', name='last_name')
+  //-     br
+  //-     br
+  //-     input(type='submit' value='Search')
 
-    br
-    br
+  //-   br
+  //-   br
 
-    form(name='first_last_dob_form', action='/citation')
-      input(type='hidden', name='search_id', value='2')
-      label Last name:&nbsp;
-      input(type='text', name='last_name')
-      br
-      br
-      label First name:&nbsp;
-      input(type='text', name='first_name')
-      br
-      br
-      label DOB:&nbsp;
-      input(type='date', name='dob')
-      br
-      br
-      input(type='submit' value='Search')
+  //-   form(name='first_last_dob_form', action='/citation')
+  //-     input(type='hidden', name='search_id', value='2')
+  //-     label Last name:&nbsp;
+  //-     input(type='text', name='last_name')
+  //-     br
+  //-     br
+  //-     label First name:&nbsp;
+  //-     input(type='text', name='first_name')
+  //-     br
+  //-     br
+  //-     label DOB:&nbsp;
+  //-     input(type='date', name='dob')
+  //-     br
+  //-     br
+  //-     input(type='submit' value='Search')
 
-    br
-    br
+  //-   br
+  //-   br
 
-    form(name='driver_form', action='/citation')
-      input(type='hidden', name='search_id', value='3')
-      label Driver's license:&nbsp;
-      input(type='text', name='drivers_lic')
-      br
-      br
-      label Last name:&nbsp;
-      input(type='text', name='last_name')
-      br
-      br
-      input(type='submit' value='Search')
+  //-   form(name='driver_form', action='/citation')
+  //-     input(type='hidden', name='search_id', value='3')
+  //-     label Driver's license:&nbsp;
+  //-     input(type='text', name='drivers_lic')
+  //-     br
+  //-     br
+  //-     label Last name:&nbsp;
+  //-     input(type='text', name='last_name')
+  //-     br
+  //-     br
+  //-     input(type='submit' value='Search')
 
