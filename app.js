@@ -10,6 +10,7 @@ pg.connectionParameters = "postgres://iltnencxwnrati:69VlHFO9ejuhDno8X21odCthhZ@
 
 var routes = require('./routes/index');
 var search = require('./routes/search');
+var feedback = require('./routes/feedback');
 var app = express();
 
 // view engine setup
@@ -31,6 +32,7 @@ app.use(function(req,res,next){
 app.use('/', routes);
 app.use('/citations', routes);
 app.use('/search', search);
+app.use('/feedback', feedback);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
