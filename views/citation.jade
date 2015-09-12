@@ -44,6 +44,11 @@ block content
                     h3 Violation: 
                       samp #{citation.violation_number}
                     code #{citation.violation_description}
+                    if citation.warrant_status != 'FOO'
+                      br
+                      code.label.label-danger
+                        i.fa.fa-exclamation-triangle
+                        |  Outstanding Warrant!
                   dl.dl-horizontal
                     dt
                       h4.white
@@ -138,7 +143,7 @@ block content
                         | #{citation.court_location}
                       li
                         i.fa.fa-phone
-                        | #{citation.court_location}
+                        | #{citation.phonenumber}
                       li
                         i.fa.fa-envelope-o
                         a(href='mailto:example@example.com') example@example.com
