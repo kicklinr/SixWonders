@@ -3,15 +3,11 @@ body {
     -webkit-font-smoothing: auto;
 }
 
-.selector {
-    background-color: $gray-base;
-    .another-selector {
-
-    }
-    &.another-selector {
-
-    }
-}
-
-.selector.another-selector {
+.banner-form-label {
+  text-align: center;
+  label {
+    font-size: 1.5em;
+    color: $gray-lighter;
+    margin-top: 12px;
+  }
 }

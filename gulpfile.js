@@ -14,6 +14,7 @@ var scripts = [
     config.bowerDir + '/jquery/dist/jquery.js',
     config.bowerDir + '/bowser/bowser.js',
     config.bowerDir + '/jquery.easing/js/jquery.easing.js',
+    config.bowerDir + '/jquery-prettyPhoto/js/jquery.prettyPhoto.js',
     config.bowerDir + '/bootstrap-sass-official/assets/javascripts/bootstrap.js',
     './resources/js/*.js'
 ];
@@ -32,6 +33,7 @@ gulp.task('css', function() { 
         style: 'compressed',
          loadPath: [
              config.sassPath + '/partials',
+            config.sassPath + '/modules',
              config.bowerDir + '/bootstrap-sass-official/assets/stylesheets',
             config.bowerDir + '/bootstrap-sass-official/assets/stylesheets/bootstrap',
             config.bowerDir,

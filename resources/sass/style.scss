@@ -4,8 +4,10 @@
 @import "modules/bootstrap-custom";
 // Font Awesome
 @import "fontawesome/scss/font-awesome";
-// Theme
-@import "theme.scss";
+// PrettyPhoto
+@import "modules/prettyphoto";
+// Themew
+@import "theme";
 
 // Partials
 @import "partials/main";

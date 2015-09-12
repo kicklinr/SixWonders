@@ -1,7 +1,120 @@
 extends inc/layout
 
 block content
-  div.container
-    div.jumbotron
-      h1= title
-      p Welcome to #{title}
+  // Start Banner
+  #banner
+    .banner-inner
+      .container
+        .row
+          // Start Header Text
+          .col-md-8.header-text
+            h1
+              strong Easily
+              |  Manage Your Citations
+            p
+              | "STL Justice Central" is here to provide you with a one-stop-shop for managing your court cases in the St. Louis metropolitan area.
+            .row
+              .col-lg-6.col-md-6.col-sm-6
+                ul.green-arrow
+                  li Look up cases for any STL municipality!
+                  li Lost your citation number? We can help!
+                  li See all of your case's information including fines, court dates, and more!
+                  li Pay your fines online!
+              .col-lg-6.col-md-6.col-sm-6
+                ul.green-arrow
+                  li Rate your court experience!
+                  li Anonymously report descrimination violations.
+                  li Provide anonymous data to help improve your community.
+              .clearfix
+          // End Header Text
+          // Start Side Image
+          .col-lg-4.col-md-4
+            img.img-responsive(src='img/top-img.png', alt='', title='')
+          // End Side Image
+        .divider50
+        // Start Banner Optin Form
+        form#banner-form.form-inline(method='post', action='banner-form.php')
+          .banner-optin
+            .row
+              .form-group.col-md-2
+                input#banner-name.form-control(name='banner-name', type='text', required='', placeholder='Last Name')
+              .form-group.col-md-1.banner-form-label
+                label(for="banner-citation")
+                  | AND
+              .form-group.col-md-3
+                input#banner-citation.form-control(name='banner-citation', type='text', placeholder='Citation #')
+              .form-group.col-md-1.banner-form-label
+                label(for="banner-id")
+                  | OR
+              .form-group.col-md-3
+                input#banner-id.form-control(name='banner-id', type='text', placeholder='Drivers License / ID #')
+              .form-group.col-md-2
+                button.btn.btn-default.btn-submit(type='submit') Find Your Citation
+          .row
+            .col-md-12
+              .form-process
+              // Displays status when submitting form
+        // End Banner Optin Form
+  // End Banner
+  // Start Intro
+  section#intro.section
+    .container
+      .row
+        // Main Points
+        .col-lg-6.col-md-6
+          .main-point
+            i.fa.fa-cubes
+            h4 Client Oriented
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          .main-point
+            i.fa.fa-male
+            h4 Easy way to capture lead email
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          .main-point.main-point-last
+            i.fa.fa-codepen
+            h4 Easy Adaptable
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        // End Main Points
+        // Side Image
+        .col-lg-6.col-md-6
+          img.img-responsive(src='img/side-img.png', alt='', title='')
+        // End Side Image
+      hr
+      .row
+        .col-lg-4.col-md-4.hidden-xs
+          // Left Column : Assistance
+          .side-text.text-center
+            i.fa.fa-phone.fa-4x
+            h4 Need More Assistance
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          // End Left Column
+        .col-lg-8.col-md-8
+          .row
+            .highlight
+              // Left Bullet Points
+              .col-lg-6.col-md-6.col-sm-6
+                ul.green-arrow
+                  li Many addon features
+                  li Fully responsive &amp; adaptive
+                  li SEO optimized
+                  li Attractive with a modern touch
+                  li Full Support
+              // End Left Bullet Points
+              // Right Bullet Points
+              .col-lg-6.col-md-6.col-sm-6
+                ul.green-arrow
+                  li Many addon features
+                  li Fully responsive &amp; adaptive
+                  li SEO optimized
+                  li Attractive with a modern touch
+                  li Full Support
+              // End Right Bullet Points
+              .clearfix
+  // Start Scroll To Top
+  a.scroll-up(href='#')
+    i.fa.fa-arrow-up
+  // End Scroll To Top
