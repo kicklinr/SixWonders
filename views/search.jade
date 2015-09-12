@@ -1,0 +1,43 @@
+extends inc/layout
+
+block content
+  div.container
+    form(name='citation_no_form', action='/citation')
+      label Citation number:&nbsp;
+      input(type='text', name='citation_no')
+      br
+      br
+      label Last name:&nbsp;
+      input(type='text', name='last_name')
+      br
+      br
+      input(type='submit' value='Search')
+
+    br
+    br
+
+    form(name='first_last_dob_form', action='/citation')
+      label Last name:&nbsp;
+      input(type='text', name='last_name')
+      br
+      br
+      label First name:&nbsp;
+      input(type='text', name='first_name')
+      br
+      br
+      label DOB:&nbsp;
+      input(type='date', name='dob')
+      br
+      br
+      input(type='submit' value='Search')
+
+    br
+    br
+
+    form(name='driver_form', action='/citation')
+      label Driver's license:&nbsp;
+      input(type='text', name='drivers_lic')
+      br
+      br
+      input(type='submit' value='Search')
+
