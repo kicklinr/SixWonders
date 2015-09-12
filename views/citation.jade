@@ -17,109 +17,326 @@ block content
           .col-lg-4.col-md-4
             img.img-responsive(src='http://placehold.it/400x200', alt='', title='')
           // End Side Image
-  section#search.section
+  section#citation.section
     .container
-      .row
-        form#banner-form.form-inline(name='driver_form',method='post', action='/citation')
-          input(type='hidden', name='searchId', value='2')
-          .banner-optin
+      .row.user-menu-container.square
+        .col-md-7.user-details
+          .row.coralbg.white
+            .col-md-8.no-pad
+              .user-pad
+                h3 Citation #1234
+                dl.dl-horizontal
+                  dt
+                    h4.white
+                      i.fa.fa-user
+                      | Defendant:
+                  dd
+                    //- |  #{firstName}, #{lastName}
+                    |  First, Last
+                dl.dl-horizontal
+                  dt
+                    h4.white
+                      i.fa.fa-calendar
+                      |  Issued:
+                  dd
+                    | June 5th, 2015
+                  dt
+                    h4.white
+                      i.fa.fa-building
+                      |  Court:
+                  dd
+                    | St. Louis County Circuit Court
+                  dt
+                    h4.white
+                      i.fa.fa-map
+                      |  Court Address:
+                  dd
+                    a(href="javascript:;")
+                      | 7900 Carondelet Ave, Clayton, MO 63105
+                button.btn.btn-labeled.btn-info(type='button', href='#')
+                  span.btn-label
+                    i.fa.fa-external-link
+                  | Goto Court Website
+            .col-md-4.no-pad
+              .user-image
+                iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43401.2629929262!2d-90.33996454180678!3d38.65037573597256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x00886c1a9645bc70!2sSt.+Louis+County+Circuit+Clerk!5e0!3m2!1sen!2sus!4v1442074653884" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen)
+          .row.overview
+            .col-md-4.user-pad.text-center
+              h3 COURT DATE
+              h4 11/01/2015
+            .col-md-4.user-pad.text-center
+              h3 COURT TIME
+              h4 5:00pm
+            .col-md-4.user-pad.text-center
+              h3 TOTAL FINE
+              h4 $200
+        .col-md-1.user-menu-btns
+          #responsive.btn-group-vertical.square
+            a.btn.btn-block.btn-default.active(href='#')
+              i.fa.fa-bell-o.fa-3x
+            a.btn.btn-default(href='#')
+              i.fa.fa-envelope-o.fa-3x
+            a.btn.btn-default(href='#')
+              i.fa.fa-laptop.fa-3x
+            a.btn.btn-default(href='#')
+              i.fa.fa-cloud-upload.fa-3x
+        .col-md-4.user-menu.user-pad
+          .user-menu-content.active
+            h3
+              | Recent Interactions
+            ul.user-menu-list
+              li
+                h4
+                  i.fa.fa-user.coral
+                  |  Roselynn Smith followed you.
+              li
+                h4
+                  i.fa.fa-heart-o.coral
+                  |  Jonathan Hawkins followed you.
+              li
+                h4
+                  i.fa.fa-paper-plane-o.coral
+                  |  Gracie Jenkins followed you.
+              li
+                button.btn.btn-labeled.btn-success(type='button', href='#')
+                  span.btn-label
+                    i.fa.fa-bell-o
+                  | View all activity
+          .user-menu-content
+            h3
+              | Your Inbox
+            ul.user-menu-list
+              li
+                h4
+                  | From Roselyn Smith 
+                  small.coral
+                    strong NEW
+                    |  
+                    i.fa.fa-clock-o
+                    |  7:42 A.M.
+              li
+                h4
+                  | From Jonathan Hawkins 
+                  small.coral
+                    i.fa.fa-clock-o
+                    |  10:42 A.M.
+              li
+                h4
+                  | From Georgia Jennings 
+                  small.coral
+                    i.fa.fa-clock-o
+                    |  10:42 A.M.
+              li
+                button.btn.btn-labeled.btn-danger(type='button', href='#')
+                  span.btn-label
+                    i.fa.fa-envelope-o
+                  | View All Messages
+          .user-menu-content
+            h3
+              | Trending
             .row
-              .form-group.col-md-3
-                //- .banner-form-label
-                //-   label(for="search_id")
-                //-   | AND
-                input#lastName.form-control(name='lastName', type='text', required='', placeholder='Last Name')
-              .form-group.col-md-3
-                //- .banner-form-label
-                //-   label(for="driverLicense")
-                //-   | AND
-                input#driverLicense.form-control(name='driverLicense', type='text', placeholder='Drivers License / ID #')
-              .form-group.col-md-3
-                //- .banner-form-label
-                //-   label(for="last_name")
-                //-   | AND
-              .form-group.col-md-3.offset-md-3
-                button.btn.btn-default.btn-submit(type='submit') Find Your Citation
-      hr
-      .row
-        form#banner-form.form-inline(name='citation_no_form',method='post', action='/citation')
-          input(type='hidden', name='searchId', value='1')
-          .banner-optin
+              .col-md-6
+                .view
+                  .caption
+                    p 47LabsDesign
+                    a(href='', rel='tooltip', title='Appreciate')
+                      span.fa.fa-heart-o.fa-2x
+                    a(href='', rel='tooltip', title='View')
+                      span.fa.fa-search.fa-2x
+                  img.img-responsive(src='http://24.media.tumblr.com/273167b30c7af4437dcf14ed894b0768/tumblr_n5waxesawa1st5lhmo1_1280.jpg')
+                .info
+                  p.small(style='text-overflow: ellipsis') An Awesome Title
+                  p.small.coral.text-right
+                    i.fa.fa-clock-o
+                    |  Posted Today | 10:42 A.M.
+                .stats.turqbg
+                  span.fa.fa-heart-o
+                    strong 47
+                  span.fa.fa-eye.pull-right
+                    strong 137
+              .col-md-6
+                .view
+                  .caption
+                    p 47LabsDesign
+                    a(href='', rel='tooltip', title='Appreciate')
+                      span.fa.fa-heart-o.fa-2x
+                    a(href='', rel='tooltip', title='View')
+                      span.fa.fa-search.fa-2x
+                  img.img-responsive(src='http://24.media.tumblr.com/282fadab7d782edce9debf3872c00ef1/tumblr_n3tswomqPS1st5lhmo1_1280.jpg')
+                .info
+                  p.small(style='text-overflow: ellipsis') An Awesome Title
+                  p.small.coral.text-right
+                    i.fa.fa-clock-o
+                    |  Posted Today | 10:42 A.M.
+                .stats.turqbg
+                  span.fa.fa-heart-o
+                    strong 47
+                  span.fa.fa-eye.pull-right
+                    strong 137
+          .user-menu-content
+            h2.text-center
+              | START SHARING
+            center
+              i.fa.fa-cloud-upload.fa-4x
+            .share-links
+              center
+                button.btn.btn-lg.btn-labeled.btn-success(type='button', href='#', style='margin-bottom: 15px;')
+                  span.btn-label
+                    i.fa.fa-bell-o
+                  | A FINISHED PROJECT
+              center
+                button.btn.btn-lg.btn-labeled.btn-warning(type='button', href='#')
+                  span.btn-label
+                    i.fa.fa-bell-o
+                  | A WORK IN PROGRESS
+
+  section#citation.section
+    .container
+      .row.user-menu-container.square
+        .col-md-7.user-details
+          .row.coralbg.white
+            .col-md-6.no-pad
+              .user-pad
+                h3 Citation #1234
+                h4.white
+                  i.fa.fa-check-circle-o
+                  |  San Antonio, TX
+                h4.white
+                  i.fa.fa-twitter
+                  |  CoolesOCool
+                button.btn.btn-labeled.btn-info(type='button', href='#')
+                  span.btn-label
+                    i.fa.fa-pencil
+                  | Update
+            .col-md-6.no-pad
+              .user-image
+                iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43401.2629929262!2d-90.33996454180678!3d38.65037573597256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x00886c1a9645bc70!2sSt.+Louis+County+Circuit+Clerk!5e0!3m2!1sen!2sus!4v1442074653884" width="400" height="300" frameborder="0" style="border:0" allowfullscreen)
+          .row.overview
+            .col-md-4.user-pad.text-center
+              h3 FOLLOWERS
+              h4 2,784
+            .col-md-4.user-pad.text-center
+              h3 FOLLOWING
+              h4 456
+            .col-md-4.user-pad.text-center
+              h3 APPRECIATIONS
+              h4 4,901
+        .col-md-1.user-menu-btns
+          #responsive.btn-group-vertical.square
+            a.btn.btn-block.btn-default.active(href='#')
+              i.fa.fa-bell-o.fa-3x
+            a.btn.btn-default(href='#')
+              i.fa.fa-envelope-o.fa-3x
+            a.btn.btn-default(href='#')
+              i.fa.fa-laptop.fa-3x
+            a.btn.btn-default(href='#')
+              i.fa.fa-cloud-upload.fa-3x
+        .col-md-4.user-menu.user-pad
+          .user-menu-content.active
+            h3
+              | Recent Interactions
+            ul.user-menu-list
+              li
+                h4
+                  i.fa.fa-user.coral
+                  |  Roselynn Smith followed you.
+              li
+                h4
+                  i.fa.fa-heart-o.coral
+                  |  Jonathan Hawkins followed you.
+              li
+                h4
+                  i.fa.fa-paper-plane-o.coral
+                  |  Gracie Jenkins followed you.
+              li
+                button.btn.btn-labeled.btn-success(type='button', href='#')
+                  span.btn-label
+                    i.fa.fa-bell-o
+                  | View all activity
+          .user-menu-content
+            h3
+              | Your Inbox
+            ul.user-menu-list
+              li
+                h4
+                  | From Roselyn Smith 
+                  small.coral
+                    strong NEW
+                    |  
+                    i.fa.fa-clock-o
+                    |  7:42 A.M.
+              li
+                h4
+                  | From Jonathan Hawkins 
+                  small.coral
+                    i.fa.fa-clock-o
+                    |  10:42 A.M.
+              li
+                h4
+                  | From Georgia Jennings 
+                  small.coral
+                    i.fa.fa-clock-o
+                    |  10:42 A.M.
+              li
+                button.btn.btn-labeled.btn-danger(type='button', href='#')
+                  span.btn-label
+                    i.fa.fa-envelope-o
+                  | View All Messages
+          .user-menu-content
+            h3
+              | Trending
             .row
-              .form-group.col-md-3
-                //- .banner-form-label
-                //-   label(for="search_id")
-                //-   | AND
-                input#lastName.form-control(name='lastName', type='text', required='', placeholder='Last Name')
-              .form-group.col-md-3
-                //- .banner-form-label
-                //-   label(for="driverLicense")
-                //-   | AND
-                input#citationNum.form-control(name='citationNum', type='text', placeholder='Citation #')
-              .form-group.col-md-3
-                //- .banner-form-label
-                //-   label(for="last_name")
-                //-   | AND
-                input#dob.form-control(name='dob', type='text', placeholder='Date Of Birth')
-              .form-group.col-md-3
-                button.btn.btn-default.btn-submit(type='submit') Find Your Citation
-      hr
-      .row
-        form#banner-form.form-inline(name='first_last_dob_form',method='post', action='/citation')
-          input(type='hidden', name='searchId', value='3')
-          .banner-optin
-            .row
-              .form-group.col-md-3
-                //- .banner-form-label
-                //-   label(for="search_id")
-                //-   | AND
-                input#lastName.form-control(name='lastName', type='text', required='', placeholder='Last Name')
-              .form-group.col-md-3
-                //- .banner-form-label
-                //-   label(for="driverLicense")
-                //-   | AND
-                input#firstName.form-control(name='firstName', type='text', placeholder='First Name')
-              .form-group.col-md-3
-                //- .banner-form-label
-                //-   label(for="last_name")
-                //-   | AND
-                input#dob.form-control(name='dob', type='text', placeholder='Date Of Birth')
-              .form-group.col-md-3
-                button.btn.btn-default.btn-submit(type='submit') Find Your Citation
-      hr
-
-  //-   br
-  //-   br
-
-  //- form(name='first_last_dob_form', action='/citation')
-  //-   input(type='hidden', name='searchId', value='2')
-  //-   label Last name:&nbsp;
-  //-   input(type='text', name='lastName')
-  //-   br
-  //-   br
-  //-   label First name:&nbsp;
-  //-   input(type='text', name='firstName')
-  //-   br
-  //-   br
-  //-   label DOB:&nbsp;
-  //-   input(type='date', name='dob')
-  //-   br
-  //-   br
-  //-   input(type='submit' value='Search')
-
-
-  //-   br
-  //-   br
-
-  //- form(name='driver_form', action='/citation')
-  //-   input(type='hidden', name='searchId', value='3')
-  //-   label Driver's license:&nbsp;
-  //-   input(type='text', name='driverLicense')
-  //-   br
-  //-   br
-  //-   label Last name:&nbsp;
-  //-   input(type='text', name='lastName')
-  //-   br
-  //-   br
-  //-   input(type='submit' value='Search')
-
+              .col-md-6
+                .view
+                  .caption
+                    p 47LabsDesign
+                    a(href='', rel='tooltip', title='Appreciate')
+                      span.fa.fa-heart-o.fa-2x
+                    a(href='', rel='tooltip', title='View')
+                      span.fa.fa-search.fa-2x
+                  img.img-responsive(src='http://24.media.tumblr.com/273167b30c7af4437dcf14ed894b0768/tumblr_n5waxesawa1st5lhmo1_1280.jpg')
+                .info
+                  p.small(style='text-overflow: ellipsis') An Awesome Title
+                  p.small.coral.text-right
+                    i.fa.fa-clock-o
+                    |  Posted Today | 10:42 A.M.
+                .stats.turqbg
+                  span.fa.fa-heart-o
+                    strong 47
+                  span.fa.fa-eye.pull-right
+                    strong 137
+              .col-md-6
+                .view
+                  .caption
+                    p 47LabsDesign
+                    a(href='', rel='tooltip', title='Appreciate')
+                      span.fa.fa-heart-o.fa-2x
+                    a(href='', rel='tooltip', title='View')
+                      span.fa.fa-search.fa-2x
+                  img.img-responsive(src='http://24.media.tumblr.com/282fadab7d782edce9debf3872c00ef1/tumblr_n3tswomqPS1st5lhmo1_1280.jpg')
+                .info
+                  p.small(style='text-overflow: ellipsis') An Awesome Title
+                  p.small.coral.text-right
+                    i.fa.fa-clock-o
+                    |  Posted Today | 10:42 A.M.
+                .stats.turqbg
+                  span.fa.fa-heart-o
+                    strong 47
+                  span.fa.fa-eye.pull-right
+                    strong 137
+          .user-menu-content
+            h2.text-center
+              | START SHARING
+            center
+              i.fa.fa-cloud-upload.fa-4x
+            .share-links
+              center
+                button.btn.btn-lg.btn-labeled.btn-success(type='button', href='#', style='margin-bottom: 15px;')
+                  span.btn-label
+                    i.fa.fa-bell-o
+                  | A FINISHED PROJECT
+              center
+                button.btn.btn-lg.btn-labeled.btn-warning(type='button', href='#')
+                  span.btn-label
+                    i.fa.fa-bell-o
+                  | A WORK IN PROGRESS
