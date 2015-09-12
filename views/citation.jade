@@ -71,6 +71,10 @@ block content
                       span.btn-label
                         i.fa.fa-external-link
                       | Goto Court Website
+                    button#feedbackBtn.btn.btn-labeled.btn-info(type='button' data-toggle="modal" data-citation="${citation_number}" data-target="#feedbackModal") 
+                      span.btn-label
+                      i.fa.fa-link
+                      | Give Feedback
                 .col-md-4.no-pad
                   .user-image
                     iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43401.2629929262!2d-90.33996454180678!3d38.65037573597256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x00886c1a9645bc70!2sSt.+Louis+County+Circuit+Clerk!5e0!3m2!1sen!2sus!4v1442074653884" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen)
@@ -203,3 +207,47 @@ block content
                       span.btn-label
                         i.fa.fa-bell-o
                       | A WORK IN PROGRESS
+  #feedbackModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="feedbackBtn", aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
+          h4.modal-title Modal Title
+        .modal-body
+          p
+            | Citation #: 
+            ${citation_number}
+            | Age: 
+            ${date_of_birth}
+            | Municipality: 
+            ${municipality}
+            | Violation: 
+            ${violation} 
+          .banner-form
+            .form-title
+              h2 Feedback
+            .form-body
+              dl.dl-horizontal
+                dt
+                  h4.white
+                    | Citation #: 
+                dd
+                  span#modalCitation
+                dt
+                  h4.white
+                    | Citation Date: 
+                dd
+                  span#modalCitationDate
+              p Lorem ipsum
+              form#banner-form.form(method='post', action='form.php')
+                .form-group
+                  input#banner-name.form-control(name='banner-name', type='text', required='', placeholder='Your Name')
+                .form-group
+                  input#banner-email.form-control(name='banner-email', type='text', required='', placeholder='Your E-mail')
+                button.btn.btn-default.btn-submit(type='submit') Subscribe
+
+
+        .modal-footer
+          button.btn.btn-default(type="button", data-dismiss="modal") Close
+          button.btn.btn-primary(type="button", data-dismiss="modal") Save Changes
+
