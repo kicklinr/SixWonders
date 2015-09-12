@@ -63,23 +63,23 @@ $('.panel').on('shown.bs.collapse', toggleIcon);
 // --------------------------------------------------------
 //  Banner Form
 // -------------------------------------------------------- 
-$('#banner-form').on('submit', function(e) {
-    e.preventDefault(); //Prevents default submit
-    var form = $(this);
-    var post_url = form.attr('action');
-    var post_data = form.serialize(); //Serialized the form data for process.php
-    $('.form-process').html('<p><i class="fa fa-spinner fa-spin fa-2x"></i> Please Wait...</p>');
-    $.ajax({
-        type: 'POST',
-        url: 'banner-form.php', // Your form script
-        data: post_data,
-        success: function(msg) {
-            $(form).fadeOut(500, function() {
-                form.html(msg).fadeIn();
-            });
-        }
-    });
-});
+// $('#banner-form').on('submit', function(e) {
+//     e.preventDefault(); //Prevents default submit
+//     var form = $(this);
+//     var post_url = form.attr('action');
+//     var post_data = form.serialize(); //Serialized the form data for process.php
+//     $('.form-process').html('<p><i class="fa fa-spinner fa-spin fa-2x"></i> Please Wait...</p>');
+//     $.ajax({
+//         type: 'POST',
+//         url: 'banner-form.php', // Your form script
+//         data: post_data,
+//         success: function(msg) {
+//             $(form).fadeOut(500, function() {
+//                 form.html(msg).fadeIn();
+//             });
+//         }
+//     });
+// });
 
 // --------------------------------------------------------
 //  Middle Form
