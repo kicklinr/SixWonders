@@ -5,8 +5,8 @@ var router = express.Router();
  * GET citation and violation info based on input.
  */
 router.all('/citationViolationList', function(req, res) {
-    var query = req.pgQuery;
-    var values = [req.query.lastName];
+  var query = req.pgQuery;
+  var values = [req.query.lastName];
 	var sqlBase = 'SELECT * FROM citations INNER JOIN violations ON citations.citation_number = violations.citation_number WHERE citations.last_name = $1::text';
 	
 	var count=2;

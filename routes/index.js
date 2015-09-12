@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var middleware = require('./middleware');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -7,9 +8,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.all('/citation', function(req, res, next) {
-    console.log(req.query);
-    res.render('citation', {
+    middleware.citationViolationList(req, res, function(){
+      console.log(res.citations);
+      res.render('citation', {
         query: req.query
+      });
     });
 });
 

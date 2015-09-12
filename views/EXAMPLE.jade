@@ -1,0 +1,917 @@
+extends inc/layout
+
+block content
+  // Start Banner
+  #banner
+    .banner-inner
+      .container
+        .row
+          // Start Header Text
+          .col-md-8.header-text
+            h1
+              strong Increase
+              |  Conversion Rates
+            p
+              | Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &apos;lorem ipsum&apos; will uncover many web sites still in their infancy
+            .row
+              .col-lg-6.col-md-6.col-sm-6
+                ul.green-arrow
+                  li Many addon features
+                  li Fully responsive &amp; adaptive
+                  li SEO optimized
+                  li Full Support
+                  li Fully responsive &amp; adaptive
+              .col-lg-6.col-md-6.col-sm-6
+                ul.green-arrow
+                  li Many addon features
+                  li Fully responsive &amp; adaptive
+                  li SEO optimized
+                  li Full Support
+                  li Fully responsive &amp; adaptive
+              .clearfix
+          // End Header Text
+          // Start Side Image
+          .col-lg-4.col-md-4
+            img.img-responsive(src='img/top-img.png', alt='', title='')
+          // End Side Image
+        .divider50
+        // Start Banner Optin Form
+        form#banner-form(method='post', action='banner-form.php')
+          .banner-optin
+            .row
+              .form-group.col-md-3
+                input#banner-name.form-control(name='banner-name', type='text', required='', placeholder='Your Name')
+              .form-group.col-md-3
+                input#banner-email.form-control(name='banner-email', type='text', required='', placeholder='Your e-mail')
+              .form-group.col-md-3
+                input#banner-phone.form-control(name='banner-phone', type='text', placeholder='Your Phone Number')
+              .form-group.col-md-3
+                button.btn.btn-default.btn-submit(type='submit') Get Your Free Trial
+          .row
+            .col-md-12
+              .form-process
+              // Displays status when submitting form
+        // End Banner Optin Form
+  // End Banner
+  // Start Intro
+  section#intro.section
+    .container
+      .row
+        // Main Points
+        .col-lg-6.col-md-6
+          .main-point
+            i.fa.fa-cubes
+            h4 Client Oriented
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          .main-point
+            i.fa.fa-male
+            h4 Easy way to capture lead email
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          .main-point.main-point-last
+            i.fa.fa-codepen
+            h4 Easy Adaptable
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        // End Main Points
+        // Side Image
+        .col-lg-6.col-md-6
+          img.img-responsive(src='img/side-img.png', alt='', title='')
+        // End Side Image
+      hr
+      // Content Row
+      .row
+        .col-lg-6.col-md-6
+          img.img-responsive(src='img/side-img.png', alt='', title='')
+        .col-lg-6.col-md-6
+          h2 Introductory Text
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+          ul.normal-list
+            li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            li Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            li Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut,
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+      // End Content Row
+      .divider50
+      .row
+        .col-lg-4.col-md-4.hidden-xs
+          // Left Column : Assistance
+          .side-text.text-center
+            i.fa.fa-phone.fa-4x
+            h4 Need More Assistance
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          // End Left Column
+        .col-lg-8.col-md-8
+          .row
+            .highlight
+              // Left Bullet Points
+              .col-lg-6.col-md-6.col-sm-6
+                ul.green-arrow
+                  li Many addon features
+                  li Fully responsive &amp; adaptive
+                  li SEO optimized
+                  li Attractive with a modern touch
+                  li Full Support
+              // End Left Bullet Points
+              // Right Bullet Points
+              .col-lg-6.col-md-6.col-sm-6
+                ul.green-arrow
+                  li Many addon features
+                  li Fully responsive &amp; adaptive
+                  li SEO optimized
+                  li Attractive with a modern touch
+                  li Full Support
+              // End Right Bullet Points
+              .clearfix
+  // End Intro
+  // Portfolio
+  section#portfolio.bg-grey.section
+    .container
+      .row
+        .col-lg-12
+          .headline
+            h1 Our Work
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
+      .row
+        .col-xs-6.col-sm-6.col-md-3
+          // Start Portfolio Item
+          .hover-details
+            img.img-responsive.img-thumbnail(src='img/thumb.png', alt='', title='')
+            // Image Thumbnail
+            .img-cover
+              a.img-zoom(href='img/thumb.png', data-gal='prettyPhoto')
+                i.fa.fa-search.fa-fw
+              // Large Image
+              h3 Item Description
+              // Image Description
+          // End Portfolio Item
+        .col-xs-6.col-sm-6.col-md-3
+          // Start Portfolio Item
+          .hover-details
+            img.img-responsive.img-thumbnail(src='img/thumb.png', alt='', title='')
+            // Image Thumbnail
+            .img-cover
+              a.img-zoom(href='img/thumb.png', data-gal='prettyPhoto')
+                i.fa.fa-search.fa-fw
+              // Large Image
+              h3 Item Description
+              // Image Description
+          // End Portfolio Item
+        .col-xs-6.col-sm-6.col-md-3
+          // Start Portfolio Item
+          .hover-details
+            img.img-responsive.img-thumbnail(src='img/thumb.png', alt='', title='')
+            // Image Thumbnail
+            .img-cover
+              a.img-zoom(href='img/thumb.png', data-gal='prettyPhoto')
+                i.fa.fa-search.fa-fw
+              // Large Image
+              h3 Item Description
+              // Image Description
+          // End Portfolio Item
+        .col-xs-6.col-sm-6.col-md-3
+          // Start Portfolio Item
+          .hover-details
+            img.img-responsive.img-thumbnail(src='img/thumb.png', alt='', title='')
+            // Image Thumbnail
+            .img-cover
+              a.img-zoom(href='img/thumb.png', data-gal='prettyPhoto')
+                i.fa.fa-search.fa-fw
+              // Large Image
+              h3 Item Description
+              // Image Description
+          // End Portfolio Item
+      .row
+        .col-xs-6.col-sm-6.col-md-3
+          // Start Portfolio Item
+          .hover-details
+            img.img-responsive.img-thumbnail(src='img/thumb.png', alt='', title='')
+            // Image Thumbnail
+            .img-cover
+              a.img-zoom(href='img/thumb.png', data-gal='prettyPhoto')
+                i.fa.fa-search.fa-fw
+              // Large Image
+              h3 Item Description
+              // Image Description
+          // End Portfolio Item
+        .col-xs-6.col-sm-6.col-md-3
+          // Start Portfolio Item
+          .hover-details
+            img.img-responsive.img-thumbnail(src='img/thumb.png', alt='', title='')
+            // Image Thumbnail
+            .img-cover
+              a.img-zoom(href='img/thumb.png', data-gal='prettyPhoto')
+                i.fa.fa-search.fa-fw
+              // Large Image
+              h3 Item Description
+              // Image Description
+          // End Portfolio Item
+        .col-xs-6.col-sm-6.col-md-3
+          // Start Portfolio Item
+          .hover-details
+            img.img-responsive.img-thumbnail(src='img/thumb.png', alt='', title='')
+            // Image Thumbnail
+            .img-cover
+              a.img-zoom(href='img/thumb.png', data-gal='prettyPhoto')
+                i.fa.fa-search.fa-fw
+              // Large Image
+              h3 Item Description
+              // Image Description
+          // End Portfolio Item
+        .col-xs-6.col-sm-6.col-md-3
+          // Start Portfolio Item
+          .hover-details
+            img.img-responsive.img-thumbnail(src='img/thumb.png', alt='', title='')
+            // Image Thumbnail
+            .img-cover
+              a.img-zoom(href='img/thumb.png', data-gal='prettyPhoto')
+                i.fa.fa-search.fa-fw
+              // Large Image
+              h3 Item Description
+              // Image Description
+          // End Portfolio Item
+  // End Portfolio
+  // Start Features
+  section#features.section
+    .container
+      .row
+        .col-lg-12
+          .headline
+            h1
+              strong Best Top
+              |  Features
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
+      .divider35
+      .row
+        // Features Listing
+        .col-lg-8.col-md-8
+          .row
+            // Features List
+            .col-lg-6.col-md-6
+              .features-list
+                i.fa.fa-paw.fa-5x
+                // Features Icon
+                h4 Responsive
+                // Features Title
+                p Lorem Ipsum has been the industry&apos;s standard dummy text since the 1500s.
+                // Features Details
+            // End Features List
+            // Features List
+            .col-lg-6.col-md-6
+              .features-list
+                i.fa.fa-slack.fa-5x
+                // Features Icon
+                h4 User Friendly
+                // Features Title
+                p Lorem Ipsum has been the industry&apos;s standard dummy text since the 1500s.
+                // Features Details
+            // End Features List
+          .row
+            .col-lg-6.col-md-6
+              // Features List
+              .features-list
+                i.fa.fa-sliders.fa-5x
+                // Features Icon
+                h4 HTML5 / CSS3
+                // Features Title
+                p Lorem Ipsum has been the industry&apos;s standard dummy text since the 1500s.
+                // Features Details
+            // End Features List
+            // Features List
+            .col-lg-6.col-md-6
+              .features-list
+                i.fa.fa-file.fa-5x
+                // Features Icon
+                h4 Bootstrap 3.0
+                // Features Title
+                p Lorem Ipsum has been the industry&apos;s standard dummy text since the 1500s.
+                // Features Details
+            // End Features List
+          .row.last-row
+            // Features List
+            .col-lg-6.col-md-6
+              .features-list
+                i.fa.fa-database.fa-5x
+                // Features Icon
+                h4 w3c Compliant
+                // Features Title
+                p Lorem Ipsum has been the industry&apos;s standard dummy text since the 1500s.
+                // Features Details
+            // End Features List
+            // Features List
+            .col-lg-6.col-md-6
+              .features-list
+                i.fa.fa-cog.fa-5x
+                // Features Icon
+                h4 Clean / Minimal
+                // Features Title
+                p Lorem Ipsum has been the industry&apos;s standard dummy text since the 1500s.
+                // Features Details
+            // End Features List
+        // End Features Listing
+        // Side Features Image
+        .col-lg-4.col-md-4
+          img.img-responsive(src='img/side-img2.png', alt='', title='')
+        // End Side Features Image
+      .row
+        .col-lg-12
+          .alert.alert-info
+            a.close(href='#', data-dismiss='alert') &times;
+            strong Note!
+            |  You can change the layout into 3 columns with all services icons instead of only 2 columns.
+  // End Features
+  // More Features
+  section#more-features.section.bg-grey
+    .container
+      .row
+        .col-lg-12
+          h2.text-center What if there were more features ?
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+      .row
+        // More Feature Column
+        .col-lg-4.col-md-4.col-sm-4.feature
+          i.fa.fa-history
+          // Features Icon
+          h4 Client Oriented
+          // Features Title
+          .bubble
+            // Features Details
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            ul.green-arrow
+              li Many addon features
+              li Fully responsive &amp; adaptive
+              li SEO optimized
+              li Attractive with a modern touch
+        // End More Feature Column
+        // More Feature Column
+        .col-lg-4.col-md-4.col-sm-4.feature
+          i.fa.fa-briefcase
+          // Features Icon
+          h4 Easy to use
+          // Features Title
+          .bubble
+            // Features Details
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            ul.green-arrow
+              li Many addon features
+              li Fully responsive &amp; adaptive
+              li SEO optimized
+              li Attractive with a modern touch
+        // End More Feature Column
+        // More Feature Column
+        .col-lg-4.col-md-4.col-sm-4.feature
+          i.fa.fa-coffee
+          // Features Icon
+          h4 Flexible
+          // Features Title
+          .bubble
+            // Features Details
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            ul.green-arrow
+              li Many addon features
+              li Fully responsive &amp; adaptive
+              li SEO optimized
+              li Attractive with a modern touch
+        // End More Feature Column
+  // End More Features
+  // Start Snippets
+  section#snippets.section
+    .container
+      .row
+        .col-lg-12
+          .headline
+            h1
+              | Quick
+              strong Snippets
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
+      // Start Tabs
+      .row
+        ul.nav.nav-tabs
+          li.active
+            a(href='#first-tab', data-toggle='tab')
+              i.fa.fa-video-camera
+              |  Introductory Video
+          // Tab #1
+          li
+            a(href='#second-tab', data-toggle='tab')
+              i.fa.fa-cube
+              |  Random Text
+          // Tab #2
+          li
+            a(href='#third-tab', data-toggle='tab')
+              i.fa.fa-group
+              |  The Team
+          // Tab #3
+        .tab-content
+          // Introductory Video
+          #first-tab.tab-pane.active
+            .row
+              .video-container
+                iframe(src='http://player.vimeo.com/video/75188030')
+          // End Introductory Video
+          // Random Text
+          #second-tab.tab-pane
+            .row
+              .col-lg-6.col-md-6
+                img.img-responsive(src='img/side-img.png', alt='', title='')
+              .col-lg-6.col-md-6
+                h2 Introductory Text
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+                ul.normal-list
+                  li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  li Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  li Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut,
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+          // End Random Text
+          // Members Listing
+          #third-tab.tab-pane
+            .row
+              .col-lg-4.col-md-4.col-sm-4.members-holder
+                // Start Member Details
+                .members-detail
+                  img.img-responsive(src='img/thumb2.png', alt='', title='')
+                  // Member Image
+                  h4 John Smith
+                  // Member Name
+                  p Founder &amp; Money Maker
+                  // Member Title
+                  ul.members-social
+                    // Member Social Media Links
+                    li
+                      a(href='mailto:mail@example.com')
+                        i.fa.fa-envelope.fa-fw
+                    li
+                      a(href='#')
+                        i.fa.fa-twitter.fa-fw
+                    li
+                      a(href='#')
+                        i.fa.fa-facebook.fa-fw
+                    li
+                      a(href='#')
+                        i.fa.fa-linkedin.fa-fw
+                // End Member Details
+              .col-lg-4.col-md-4.col-sm-4.members-holder
+                .members-detail
+                  img.img-responsive(src='img/thumb2.png', alt='', title='')
+                  h4 Sarah Mchaul
+                  p Graphic Designer &amp; UI Expert
+                  ul.members-social
+                    li
+                      a(href='mailto:mail@example.com')
+                        i.fa.fa-envelope.fa-fw
+                    li
+                      a(href='#')
+                        i.fa.fa-twitter.fa-fw
+                    li
+                      a(href='#')
+                        i.fa.fa-facebook.fa-fw
+                    li
+                      a(href='#')
+                        i.fa.fa-linkedin.fa-fw
+              .col-lg-4.col-md-4.col-sm-4.members-holder
+                .members-detail
+                  img.img-responsive(src='img/thumb2.png', alt='', title='')
+                  h4 Sales
+                  p Lead Web Designer
+                  ul.members-social
+                    li
+                      a(href='mailto:mail@example.com')
+                        i.fa.fa-envelope.fa-fw
+                    li
+                      a(href='#')
+                        i.fa.fa-twitter.fa-fw
+                    li
+                      a(href='#')
+                        i.fa.fa-facebook.fa-fw
+                    li
+                      a(href='#')
+                        i.fa.fa-linkedin.fa-fw
+          // End Members Listing
+      // End Tabs
+  // End Snippets
+  // Subscribe
+  section.section.bg-blue
+    .container
+      .row
+        .col-lg-12
+          .headline
+            h1
+              strong Subscribe
+              |  Freely
+            p
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+      .row
+        .col-lg-12
+          // Subscribe Form
+          form#middle-form(method='post', action='middle-form.php')
+            .middle-optin
+              .row
+                .form-group.col-lg-3
+                  input#middle-optin-name.form-control(name='middle-optin-name', type='text', required='', placeholder='Your Name')
+                .form-group.col-lg-3
+                  input#middle-optin-email.form-control(name='middle-optin-email', type='text', required='', placeholder='Your E-mail')
+                .form-group.col-lg-3
+                  input#middle-optin-phone.form-control(name='middle-optin-phone', type='text', placeholder='Your Phone Phone')
+                .form-group.col-lg-3
+                  button.btn.btn-default.black-btn(type='submit') Subscribe Now
+            .row
+              .col-md-12
+                .form-process-middle
+          // End Subscribe Form
+  // End Subscribe
+  // Testimonials
+  section#testimonials.section.testimonial-bg.cover
+    .container
+      .row
+        .col-lg-12
+          .headline
+            h1
+              | Awesome
+              strong Testimonials
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
+      .row
+        .col-md-12
+          // Start Testimonial Slider
+          #testimonial.carousel.slide.carousel-mod(data-ride='carousel')
+            .carousel-inner
+              // Testimonial #1
+              .item.active
+                .row
+                  .col-lg-12
+                    .testimonial-inner
+                      img(src='img/testi.png', alt='', title='')
+                      // Testimonial Image
+                      p
+                        | Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!
+                      // Tesimonial
+                      small Someone famous
+                      // Testimonial Author
+              // End Testimonial #1
+              .item
+                .row
+                  .col-lg-12
+                    .testimonial-inner
+                      img(src='img/testi.png', alt='', title='')
+                      // Testimonial Image
+                      p
+                        | Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!
+                      // Tesimonial
+                      small Someone famous
+                      // Testimonial Author
+              .item
+                .row
+                  .col-lg-12
+                    .testimonial-inner
+                      img(src='img/testi.png', alt='', title='')
+                      // Testimonial Image
+                      p
+                        | Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!
+                      // Tesimonial
+                      small Someone famous
+                      // Testimonial Author
+            // Testimonial Navigation
+            ol.carousel-indicators
+              li.active(data-target='#testimonial', data-slide-to='0')
+              li(data-target='#testimonial', data-slide-to='1')
+              li(data-target='#testimonial', data-slide-to='2')
+            // End Testimonial Navigation
+  // End Testimonials
+  // Start Partners
+  section#partners.section20.bg-dark.hidden-xs
+    .container
+      .row
+        ul.partners-logo
+          li.col-md-2.col-sm-2
+            a(href='#')
+              img(src='img/logo1.png', alt='', title='')
+          // Logo Image
+          li.col-md-2.col-sm-2
+            a(href='#')
+              img(src='img/logo2.png', alt='', title='')
+          li.col-md-2.col-sm-2
+            a(href='#')
+              img(src='img/logo3.png', alt='', title='')
+          li.col-md-2.col-sm-2
+            a(href='#')
+              img(src='img/logo4.png', alt='', title='')
+          li.col-md-2.col-sm-2
+            a(href='#')
+              img(src='img/logo1.png', alt='', title='')
+          li.col-md-2.col-sm-2
+            a(href='#')
+              img(src='img/logo2.png', alt='', title='')
+  // End Partners
+  // Start FAQ
+  section#faq.section
+    .container
+      .row
+        .col-lg-12
+          .headline
+            h1 Frequently Asked Questions
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
+      .row
+        .col-lg-7.col-md-7
+          // Faq 1
+          .panel
+            .panel-heading
+              h4.panel-title
+                a.panel-toggle(data-parent='#accordion', data-toggle='collapse', href='#faq1')
+                  i.fa.fa-plus-square
+                  | What&apos;s the guarantee period ?
+              // Faq Title
+            #faq1.panel-collapse.collapse.in
+              .panel-body
+                // Faq Content
+                p
+                  | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+          // End Faq 1
+          // Faq 2
+          .panel
+            .panel-heading
+              h4.panel-title
+                a.panel-toggle(data-parent='#accordion', data-toggle='collapse', href='#faq2')
+                  i.fa.fa-plus-square
+                  | Can I buy this template and sell it ?
+              // Faq Title
+            #faq2.panel-collapse.collapse
+              .panel-body
+                // Faq Content
+                p
+                  | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+          // End Faq 2
+          // Faq 3
+          .panel
+            .panel-heading
+              h4.panel-title
+                a.panel-toggle(data-parent='#accordion', data-toggle='collapse', href='#faq3')
+                  i.fa.fa-plus-square
+                  | 24/7 support system available ?
+              // Faq Title
+            #faq3.panel-collapse.collapse
+              .panel-body
+                // Faq Content
+                p
+                  | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+          // End Faq 3
+          // Faq 4
+          .panel
+            .panel-heading
+              h4.panel-title
+                a.panel-toggle(data-parent='#accordion', data-toggle='collapse', href='#faq4')
+                  i.fa.fa-plus-square
+                  | Why am I asking so many questions ?
+              // Faq Title
+            #faq4.panel-collapse.collapse
+              .panel-body
+                // Faq Content
+                p
+                  | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+          // End Faq 4
+          // Faq 5
+          .panel
+            .panel-heading
+              h4.panel-title
+                a.panel-toggle(data-parent='#accordion', data-toggle='collapse', href='#faq5')
+                  i.fa.fa-plus-square
+                  | Is it mobile-friendly ?
+              // Faq Title
+            #faq5.panel-collapse.collapse
+              .panel-body
+                // Faq Content
+                p
+                  | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+          // End Faq 5
+        .col-lg-5.col-md-5
+          img.img-responsive(src='img/side-img2.png', alt='', title='')
+          // Side Image
+  // End FAQ
+  // Start Pricing
+  section#pricing.bg-grey.section
+    .container
+      .row
+        .col-lg-12
+          .headline
+            h1 Pricing
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam aliquando posse.
+      .divider50
+      .row
+        // Price Column #1
+        .col-sm-4.pricing-container
+          .price-column
+            h2 Silver Package
+            // Package Title
+            h3
+              | $14
+              sup .99
+              span / month
+            // Price
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            // Description
+            // Package Features
+            ul
+              li
+                | Lorem ipsum dolor
+                i.fa.fa-check
+              li
+                del Sit amet, consectetur nam
+                i.fa.fa-times.red-color
+              li
+                del Magna adipiscing elit nam dui
+                i.fa.fa-times.red-color
+              li
+                del Lacus ut accumsan sed
+                i.fa.fa-times.red-color
+            // End Package Features
+            .price-bottom
+              a.btn.btn-default.price-btn(href='#') Get Started
+              // Buy Button
+        // End Price Column #1
+        // Price Column #2
+        .col-sm-4.pricing-container.featured-price
+          .price-column.large
+            h2 Gold Package
+            // Package Title
+            h3
+              | $25
+              sup .99
+              span / month
+            // Price
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            // Description
+            // Package Features
+            ul
+              li
+                | Lorem ipsum dolor
+                i.fa.fa-check
+              li
+                | Lacus ut accumsan sed
+                i.fa.fa-check
+              li
+                | Sit amet, consectetur nam
+                i.fa.fa-check
+              li
+                | Magna adipiscing elit nam dui
+                i.fa.fa-check
+              li
+                | Lacus ut accumsan sed
+                i.fa.fa-check
+            // End Package Features
+            .price-bottom
+              a.btn.btn-default.price-btn(href='#') Get Started
+              // Buy Button
+        // End Price Column #2
+        // Price Column #4
+        .col-sm-4.pricing-container
+          .price-column
+            h2 Platinum Package
+            // Package Title
+            h3
+              | $39
+              sup .99
+              span / month
+            // Price
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            // Description
+            // Package Features
+            ul
+              li
+                | Lorem ipsum dolor
+                i.fa.fa-check
+              li
+                del Sit amet, consectetur nam
+                i.fa.fa-times.red-color
+              li
+                | Magna adipiscing elit nam dui
+                i.fa.fa-check
+              li
+                del Lacus ut accumsan sed
+                i.fa.fa-times.red-color
+            // End Package Features
+            .price-bottom
+              a.btn.btn-default.price-btn(href='#') Get Started
+              // Buy Button
+        // End Price Column #1
+      .row
+        .col-md-8.col-md-offset-2.text-center
+          p.lead
+            | Need a
+            strong customized
+            |  plan ? Get in Touch, we will tailor you one.
+  // End Pricing
+  // Start Subscribe
+  section#subscribe.section
+    .container
+      .row
+        .col-lg-12
+          .headline
+            h1
+              | Get
+              strong Started
+            p Sign up and get our latest updates and product release
+      .row
+        .col-lg-12.text-center
+          a.btn.btn-primary.btn-lg.btn-bluebg(href='#') Get started
+          a.btn.btn-default.btn-lg.btn-bluenobg(href='#') Take tour
+  // End Subscribe
+  footer#footer.section.nopadding-bottom
+    .container
+      .row
+        // Footer About Description
+        .col-md-3.col-sm-6
+          h4 About Landing Page
+          p
+            | Default text creates the illusion of real text. If it is not real text, they will focus on the design.
+          hr
+          h4 Quick Links
+          ul.quick-links
+            li
+              a(href='#') Contact
+            li
+              a(href='#') Disclaimer
+            li
+              a(href='#') Terms &amp; Conditions
+            li
+              a(href='#') Privacy Policy
+            li
+              a(href='#') Support
+        // End Footer About Description
+        // Start Contact Details
+        .col-md-4.col-sm-6
+          .contact-info
+            h4 Where to find us
+            p Nam leo lorem, tincidunt id risus ut, ornare tincidunt naqunc.
+            ul.contact-list
+              li
+                i.fa.fa-map-marker
+                | Somewhere Somewhere, Mauritius
+              li
+                i.fa.fa-phone
+                | + 230 5 8268494
+              li
+                i.fa.fa-envelope-o
+                a(href='mailto:contact@simplesphere.net.com') contact@simplesphere.net
+          // End Contact Details
+          hr
+          .social
+            h4 Follow us
+            // Start  Social Links
+            ul.social
+              li.facebook
+                a(href='#')
+                  i.fa.fa-facebook
+              li.twitter
+                a(href='#')
+                  i.fa.fa-twitter
+              li.google-plus
+                a(href='#')
+                  i.fa.fa-google-plus
+              li.linkedin
+                a(href='#')
+                  i.fa.fa-linkedin
+              li.youtube
+                a(href='#')
+                  i.fa.fa-youtube-play
+            // End Social Links
+        .col-md-5.bottom-contact
+          h4 Get in Touch
+          p Nam leo lorem, tincidunt id risus ut, ornare tincidunt naqunc.
+          // Start Contact Form
+          form#contact-form.contact-form(method='post', action='contact-form.php')
+            .form-group
+              input#contact-name.form-control(name='contact-name', type='text', placeholder='Name')
+            .form-group
+              input#contact-email.form-control(name='contact-email', type='text', placeholder='Your e-mail')
+            .form-group
+              input#contact-phone.form-control(name='contact-phone', type='text', placeholder='Phone')
+            .form-group
+              textarea#contact-message.form-control(name='contact-message', placeholder='Message')
+            .form-group
+              button.btn.btn-default.btn-submit(type='submit') Submit
+            .row
+              .col-md-12
+                .form-process-contact
+          // End Contact Form
+    .container
+      .row.footer-bottom
+        .col-lg-6.col-sm-6
+          p &copy; Sales Theme. All Right Reserved
+        .col-lg-6.col-sm-6
+          p.copyright
+            | Made with
+            i.fa.fa-heart
+            |  by
+            a(href='http://www.simplesphere.net') Simplesphere
+  // Start Scroll To Top
+  a.scroll-up(href='#')
+    i.fa.fa-arrow-up
+  // End Scroll To Top
