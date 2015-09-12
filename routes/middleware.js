@@ -38,17 +38,31 @@ exports.citationViolationList = function(req, res, next) {
     console.log(sqlBase);
     console.log(values);
     query(sqlBase, values, function(err, rows, result) {
-        res.citations = rows;
-
         // format some dats and stuff.
         for (var i=0; i < rows.length; i++) {
-            rows[0].court_date = 
-                rows[0].court_date.split(" ")[0] + 
-                rows[0].court_date.split(" ")[1] +
-                rows[0].court_date.split(" ")[2] +
-                rows[0].court_date.split(" ")[3];
-        }
+            var date = new String(rows[i].court_date);
+            if (date != null) {
+                date = 
+                    date.split(" ")[0] + " " + 
+                    date.split(" ")[1] + " " +
+                    date.split(" ")[2] + " " +
+                    date.split(" ")[3];
 
+                rows[i].court_date = date;
+            }
+
+            date = new String(rows[i].citation_date);
+            if (date != null) {
+                date = 
+                    date.split(" ")[0] + " " + 
+                    date.split(" ")[1] + " " +
+                    date.split(" ")[2] + " " +
+                    date.split(" ")[3];
+
+                rows[i].citation_date = date;
+            }
+        }
+        res.citations = rows;
         console.log(err);
         next();
     });
