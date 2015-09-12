@@ -4,9 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var pg = require('pg-query');
+
+pg.connectionParameters = "postgres://iltnencxwnrati:69VlHFO9ejuhDno8X21odCthhZ@ec2-107-21-105-116.compute-1.amazonaws.com:5432/d3vatqm4sct45j?ssl=true";
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var services = require('./routes/services');
 
 var app = express();
 
@@ -21,9 +25,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(req,res,next){
+	req.pgQuery = pg;
+	next();
+});
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/services', services);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
