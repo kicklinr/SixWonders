@@ -4,6 +4,7 @@ block content
   div.container
     form(name='citation_no_form', action='/citation')
       label Citation number:&nbsp;
+      input(type='hidden', name='search_id', value='1')
       input(type='text', name='citation_no')
       br
       br
@@ -17,6 +18,7 @@ block content
     br
 
     form(name='first_last_dob_form', action='/citation')
+      input(type='hidden', name='search_id', value='2')
       label Last name:&nbsp;
       input(type='text', name='last_name')
       br
@@ -35,8 +37,13 @@ block content
     br
 
     form(name='driver_form', action='/citation')
+      input(type='hidden', name='search_id', value='3')
       label Driver's license:&nbsp;
       input(type='text', name='drivers_lic')
+      br
+      br
+      label Last name:&nbsp;
+      input(type='text', name='last_name')
       br
       br
       input(type='submit' value='Search')
