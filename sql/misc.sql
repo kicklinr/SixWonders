@@ -29,6 +29,10 @@ CREATE TABLE ticket_feedback (
   experience_rating INTEGER
 );
 
+ALTER TABLE ticket_feedback ADD gender TEXT;
+
+ALTER TABLE ticket_feedback ADD UNIQUE (hashed_citation_number);
+
 INSERT INTO ticket_feedback(hashed_citation_number, age, race, zip, incomeRange, violation_description, municipality, optional_comment, experience_rating)
 VALUES ($1::text, $2::integer, $3::text, $4::text, $5::integer, $6::text, $7::text, $8::text, $9::integer);
 
@@ -47,6 +51,14 @@ CREATE TABLE court_feedback (
   optional_comment TEXT,
   experience_rating INTEGER
 );
+
+ALTER TABLE court_feedback ADD gender TEXT;
+
+ALTER TABLE court_feedback ADD UNIQUE (hashed_citation_number);
+
+INSERT INTO court_feedback(hashed_citation_number, age, race, zip, incomeRange, violation_description, municipality,
+  checkin_time, appearance_time, attorney, optional_comment, experience_rating)
+VALUES ($1::text, $2::integer, $3::text, $4::text, $5::integer, $6::text, $7::text, $8::timestamp, $9::timestamp, $10:boolean, $11::text, $12::integer);
 
 CREATE TABLE income_ranges(
   id SERIAL PRIMARY KEY,
