@@ -5,30 +5,33 @@
 // Query Citations
 exports.citationViolationList = function(req, res, next) {
     var query = req.pgQuery;
-    var values = [req.query.lastName];
-    var sqlBase = 'SELECT * FROM citations INNER JOIN violations ON citations.citation_number = violations.citation_number WHERE citations.last_name = $1::text';
+    var values = [req.body.lastName];
+    var sqlBase = 
+        'SELECT * FROM citations INNER JOIN violations ON ' +
+        'citations.citation_number = violations.citation_number ' +
+        'WHERE citations.last_name = $1::text';
 
     var count=2;
 
-    console.log(req.query);
+    console.log(req.body);
 
-    if(req.query.firstName!=null){
-        values.push(req.query.firstName);
+    if (typeof req.body.firstName != 'undefined' && req.body.firstName!== '') {
+        values.push(req.body.firstName);
         sqlBase= sqlBase + " AND citations.first_name = $"+count+"::text";
         count = count +1;
     }
-    else if(req.query.dob!=null){
-        values.push(req.query.dob);
+    else if(typeof req.body.dob != 'undefined' && req.body.dob!==''){
+        values.push(req.body.dob);
         sqlBase= sqlBase + " AND citations.dob = $"+count+"::text";
         count = count +1;
     }
-    else if(req.query.driverLicense!=null){
-        values.push(req.query.driverLicense);
+    else if(typeof req.body.driverLicense != 'undefined'&& req.body.driverLicense!==''){
+        values.push(req.body.driverLicense);
         sqlBase= sqlBase + " AND citations.driverLicense = $"+count+"::text";
         count = count +1;
     }
-    else if(req.query.citationNum!=null){
-        values.push(req.query.citationNum);
+    else if(typeof req.body.citationNum != 'undefined' && req.body.citationNum!==''){
+        values.push(req.body.citationNum);
         sqlBase= sqlBase + " AND citations.citationNum = $"+count+"::text";
         count = count +1;
     }
