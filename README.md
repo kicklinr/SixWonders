@@ -2,7 +2,7 @@
 ## Access
 1. Clone the github remote: ``
 ## Heroku
-1. Install heroku toolbelt: ``
+1. Install heroku toolbelt: `https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up`
 . Add heroku as a remote: `heroku git:remote -a infinite-meadow-7322`
 ## Installation:
 * Note: If you're using Mac OSX, many of these installs will be easier with [Homebrew]().
