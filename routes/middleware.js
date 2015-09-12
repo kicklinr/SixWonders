@@ -35,7 +35,7 @@ exports.citationViolationList = function(req, res, next) {
     console.log(sqlBase);
     console.log(values);
     query(sqlBase, values, function(err, rows, result) {
-        res.citations = json(rows);
+        res.citations = rows;
         console.log(err);
         next();
     });
