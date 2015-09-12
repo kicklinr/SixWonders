@@ -27,29 +27,75 @@ block content
             p
               | We want to help you find your citations no matter which St. Louis area municipality they are in, and regardless if you've lost some of your information. Fill out one of the forms below to search for your citation information.
           .col-lg-4.col-md-4
-            img.img-responsive(src='img/top-img.png', alt='', title='')
+            img.img-responsive(src='http://placehold.it/400x200', alt='', title='')
           // End Side Image
   section#search.section
     .container
       .row
-        form#banner-form.form-inline(name='citation_no_form',method='post', action='/citation')
+        form#banner-form.form-inline(name='driver_form',method='post', action='/citation')
+          input(type='hidden', name='searchId', value='2')
           .banner-optin
             .row
               .form-group.col-md-3
-                .banner-form-label
-                  label(for="search_id")
-                  | AND
-                input#search_id.form-control(name='searchId', type='text', required='', placeholder='Last Name')
+                //- .banner-form-label
+                //-   label(for="search_id")
+                //-   | AND
+                input#lastName.form-control(name='lastName', type='text', required='', placeholder='Last Name')
               .form-group.col-md-3
-                .banner-form-label
-                  label(for="citation_no")
-                  | AND
-                input#citation_no.form-control(name='citationNumber', type='text', placeholder='Citation #')
+                //- .banner-form-label
+                //-   label(for="driverLicense")
+                //-   | AND
+                input#driverLicense.form-control(name='driverLicense', type='text', placeholder='Drivers License / ID #')
               .form-group.col-md-3
-                .banner-form-label
-                  label(for="last_name")
-                  | AND
-                input#last_name.form-control(name='lastName', type='text', placeholder='Drivers License / ID #')
+                //- .banner-form-label
+                //-   label(for="last_name")
+                //-   | AND
+              .form-group.col-md-3.offset-md-3
+                button.btn.btn-default.btn-submit(type='submit') Find Your Citation
+      hr
+      .row
+        form#banner-form.form-inline(name='citation_no_form',method='post', action='/citation')
+          input(type='hidden', name='searchId', value='1')
+          .banner-optin
+            .row
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="search_id")
+                //-   | AND
+                input#lastName.form-control(name='lastName', type='text', required='', placeholder='Last Name')
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="driverLicense")
+                //-   | AND
+                input#citationNum.form-control(name='citationNum', type='text', placeholder='Citation #')
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="last_name")
+                //-   | AND
+                input#dob.form-control(name='dob', type='text', placeholder='Date Of Birth')
+              .form-group.col-md-3
+                button.btn.btn-default.btn-submit(type='submit') Find Your Citation
+      hr
+      .row
+        form#banner-form.form-inline(name='first_last_dob_form',method='post', action='/citation')
+          input(type='hidden', name='searchId', value='3')
+          .banner-optin
+            .row
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="search_id")
+                //-   | AND
+                input#lastName.form-control(name='lastName', type='text', required='', placeholder='Last Name')
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="driverLicense")
+                //-   | AND
+                input#firstName.form-control(name='firstName', type='text', placeholder='First Name')
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="last_name")
+                //-   | AND
+                input#dob.form-control(name='dob', type='text', placeholder='Date Of Birth')
               .form-group.col-md-3
                 button.btn.btn-default.btn-submit(type='submit') Find Your Citation
       hr
