@@ -87,12 +87,11 @@ block content
                       i.fa.fa-map-marker
                       a(href="http://maps.google.com/?q=#{citation.court_address}", target="_blank")
                         | #{citation.court_address}
-<<<<<<< HEAD
                     button.btn.btn-labeled.btn-info(type='button', href='#')
                       span.btn-label
                         i.fa.fa-external-link
                       | Goto Court Website
-                    button#feedbackBtn.btn.btn-labeled.btn-info(type='button' data-toggle="modal" data-citation="${citation_number}" data-target="#feedbackModal") 
+                    button#feedbackBtn.btn.btn-labeled.btn-info(type='button' data-toggle="modal" data-citation="${citation_number}" data-target="#modal-#{citation_id}")
                       span.btn-label
                         i.fa.fa-link
                       | Give Feedback
@@ -183,55 +182,47 @@ block content
                       span.btn-label
                         i.fa.fa-bell-o
                       | ALSO GET HELP HERE
-
-  #feedbackModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="feedbackBtn", aria-hidden="true")
-    .modal-dialog
-      .modal-content
-        .modal-header
-          button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
-          h4.modal-title Modal Title
-        .modal-body
-          p
-            | Citation #: 
-            ${citation_number}
-            | Age: 
-            ${date_of_birth}
-            | Municipality: 
-            ${municipality}
-            | Violation: 
-            ${violation} 
-          .banner-form
-            .form-title
-              h2 Feedback
-            .form-body
-              form#banner-form.form(method='post', action='form.php')
-              input#modal-violation(type="hidden")
-              input#modal-violation(type="hidden")
-              input#modal-dob(type="hidden")
-              input#modal-municipality(type="hidden")
-              input#modal-zip(type="hidden")
-              input#modal-gender(type="hidden")
-              dl.dl-horizontal
-                dt
-                  h4
-                    | Citation #: 
-                dd
-                  span.modal-citation
-                dt
-                  h4
-                    | Citation Date: 
-                dd
-                  span#modal-citationDate
-
-              p Lorem ipsum
-              
-                .form-group
-                  input#banner-name.form-control(name='banner-name', type='text', required='', placeholder='Your Name')
-                .form-group
-                  input#banner-email.form-control(name='banner-email', type='text', required='', placeholder='Your E-mail')
-                button.btn.btn-default.btn-submit(type='submit') Subscribe
-
-        .modal-footer
-          button.btn.btn-default(type="button", data-dismiss="modal") Close
-          button.btn.btn-primary(type="button", data-dismiss="modal") Save Changes
+      .modal.fade(tabindex="-1", role="dialog", aria-labelledby="feedbackBtn", aria-hidden="true", id="modal-#{citation_id}")
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
+              h4.modal-title Modal Title
+            .modal-body
+              .banner-form
+                .form-title
+                  h2 Feedback
+                .form-body
+                  form#banner-form.form(method='post', action='form.php')
+                  input#modal-violation(type="hidden", value="#{citation.violation_description}")
+                  input#modal-dob(type="hidden", value="#{citation.date_of_birth}")
+                  input#modal-municipality(type="hidden", value="#{citation.municipality}")
+                  input#modal-dcity(type="hidden", value="#{citation.defendant_city}")
+                  input#modal-dstate(type="hidden", value="#{citation.defendant_state}")
+                  select#modal-race
+                    each race, i in ["Ethnicity","Caucasian","African American","Hispanic","Asian","Native American","Klingon","Morlock"]
+                      option(value=i) #{race}
+                  select#modal-income
+                    each range, i in ["Annual Household Income","Less than $20,000","$20,000 to $34,999","$35,000 to $49,999","$50,000 to $74,999","$75,000 to $99,999","$75,000 to $99,999","$100,000 to $149,999","$150,000 or more"]
+                      option(value=i) #{range}
+                  dl.dl-horizontal
+                    dt
+                      h4
+                        | Citation #: 
+                    dd
+                      span.modal-citation
+                    dt
+                      h4
+                        | Citation Date: 
+                    dd
+                      span#modal-citationDate
+                  p Lorem ipsum
+                    .form-group
+                      input#banner-name.form-control(name='banner-name', type='text', required='', placeholder='Your Name')
+                    .form-group
+                      input#banner-email.form-control(name='banner-email', type='text', required='', placeholder='Your E-mail')
+                    button.btn.btn-default.btn-submit(type='submit') Subscribe
+            .modal-footer
+              button.btn.btn-default(type="button", data-dismiss="modal") Close
+              button.btn.btn-primary(type="button", data-dismiss="modal") Save Changes
 
