@@ -14,4 +14,5 @@
     * This will install gulp and all its dependencies
 4. In the project root, run `bower install`
     * This will install Bootstrap and Font Awesome
+5. Run the app: `node ./bin/www`
 
