@@ -11,7 +11,7 @@ exports.citationViolationList = function(req, res, next) {
         'citations.citation_number = violations.citation_number ' +
         'INNER JOIN municiple ON ' +
         'upper(municiple.municipality) = upper(citations.court_location) ' +
-        'WHERE citations.last_name = $1::text';
+        'WHERE upper(citations.last_name) = upper($1::text)';
 
     var count=2;
 
@@ -65,9 +65,18 @@ exports.citationViolationList = function(req, res, next) {
 
                     rows[i].citation_date = date;
                 }
-            }
 
-            //rows[i].
+                var total1 = new Number(0), total2 = new Number(0);     
+                if (rows[i].fine_amount != null) {
+                    total1 = new Number(rows[i].fine_amount.substring(1));
+                }
+
+                if (rows[i].court_cost != null) {
+                    total2 = new Number(rows[i].court_cost.substring(1));
+                }
+
+                    rows[i].total_cost = "$" + (total1 + total2).toFixed(2);
+                }
         }
 
         res.citations = rows;
