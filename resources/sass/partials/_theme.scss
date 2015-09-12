@@ -406,8 +406,8 @@ Footer
 .copyright {float: right;}
 .copyright i {color: #FF3D7F; margin:0 5px;}
 
-.contact-list li {font-size: 14px; color: #FFF;}
-.contact-list i {border: 1px solid #fff; border-radius: 50%; height: 40px; width: 40px; text-align: center; line-height: 40px; margin-right: 10px; margin-bottom: 10px;}
+.contact-list li {font-size: 14px; color: $brand-primary;}
+.contact-list i {border: 1px solid $brand-primary; border-radius: 50%; height: 40px; width: 40px; text-align: center; line-height: 40px; margin-right: 10px; margin-bottom: 10px;}
 
 .footer-bottom {margin-top: 60px; padding-top: 40px; border-top:1px solid rgba(255,255,255,0.2);}
 
