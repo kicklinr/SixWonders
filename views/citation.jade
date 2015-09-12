@@ -11,7 +11,7 @@ block content
           .col-md-8.header-text
             h1
               strong Your
-              |  citations.
+              |  citations
             p
               | View your citations below. You will find information about the court location, court date, and fines.
           //- .col-lg-4.col-md-4
@@ -32,7 +32,7 @@ block content
             a.btn.btn-default.btn-lg.btn-bluenobg(href='#') Help
   else
     each citation in citations
-      section#citation.section
+      section#citation.section.citation-section
         .container
           .row.user-menu-container.square
             .col-md-6.user-details
