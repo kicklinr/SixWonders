@@ -39,8 +39,11 @@ block content
               .row.coralbg.white
                 .col-md-12.no-pad
                   .user-pad
-                    h3 Citation 
+                    h3 Citation: 
                       samp #{citation.citation_number}
+                    h3 Violation: 
+                      samp #{citation.violation_number}
+                    code #{citation.violation_description}
                   dl.dl-horizontal
                     dt
                       h4.white
@@ -49,6 +52,17 @@ block content
                       i.fa.fa-user
                       //- |  #{firstName}, #{lastName}
                       | #{citation.last_name}, #{citation.first_name}
+                    dt
+                      h4.white
+                        | Status:
+                    dd
+                      i.fa.fa-status
+                      if(citation.status = 'OPEN')
+                        span.label.label-warning OPEN
+                      else if(citation.status = 'CLOSED')
+                        span.label.label-success CLOSED
+                      else
+                        span.label.label-default #{citation.status}
                     dt
                       h4.white
                         | Issued:
@@ -66,8 +80,9 @@ block content
                         |  Court Address:
                     dd
                       i.fa.fa-map-marker
-                      a(href="javascript:;")
+                      a(href="http://maps.google.com/?q=#{citation.court_address}", target="_blank")
                         | #{citation.court_address}
+<<<<<<< HEAD
                     button.btn.btn-labeled.btn-info(type='button', href='#')
                       span.btn-label
                         i.fa.fa-external-link
@@ -76,6 +91,16 @@ block content
                       span.btn-label
                         i.fa.fa-link
                       | Give Feedback
+                    if citation.municipalcourturl && citation.municipalcourturl != 'none'
+                      button.btn.btn-labeled.btn-info(type='button')&attributes({'href': citation.municipalcourturl})
+                        span.btn-label
+                          i.fa.fa-external-link
+                        | Goto Court Website
+                    else if citation.municipalwebsite && citation.municipalwebsite != 'none'
+                      button.btn.btn-labeled.btn-info(type='button')&attributes({'href': citation.municipalwebsite})
+                        span.btn-label
+                          i.fa.fa-external-link
+                        | Goto Court Website
               .row.overview
                 .col-md-4.user-pad.text-center
                   h3 COURT DATE
@@ -85,7 +110,7 @@ block content
                   h4 1:00 PM
                 .col-md-4.user-pad.text-center
                   h3 TOTAL FINE
-                  h4 #{citation.fine_amount}
+                  h4 #{citation.total_cost}
             .col-md-2.user-menu-btns
               #responsive.btn-group-vertical.square
                 a.btn.btn-block.btn-default.active(href='#')

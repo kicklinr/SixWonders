@@ -139,6 +139,9 @@ div.user-menu div.user-menu-content:not(.active){
 
 .user-pad {
     padding: 20px 25px;
+    h3 {
+      margin-bottom: 2px;
+    }
 }
 
 .no-pad {
@@ -152,6 +155,10 @@ div.user-menu div.user-menu-content:not(.active){
     min-height: 333px;
     dd i {
       margin-right: 4px;
+    }
+    a {
+      color: #fff;
+      text-decoration: underline;
     }
 }
 
