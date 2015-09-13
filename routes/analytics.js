@@ -1,8 +1,22 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 
-router.get('/', function(req, res, next) {
-  res.render('analytics', { title: 'Analytics' });
+var obj;
+
+router.all('/', function(req, res, next) {
+  fs.readFile('public/geo/courts.geojson', handleFile);
+
+  function handleFile(err, data) {
+    if (err) throw err
+    obj = JSON.parse(data)
+
+    console.log("Done loading file.")
+    res.render('analytics', { title: 'Analytics',
+      geojson : obj
+    });
+  }
+
 });
 
 module.exports = router;
