@@ -151,6 +151,20 @@ block content
                 }
               });
 
+              var hispanicArrestsLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  var interactions = feature.properties.hispanic_arrest_rate;
+
+                  if (interactions == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                  var t = Math.min(interactions / 10, 1);
+                  var r = 255 * t;
+                  var b = 0;
+                  var g = 0;
+                  var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
+                  return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                }
+              });
+
               var whiteSearchLayer = L.geoJson(!{JSON.stringify(geojson)},{
                 style: function(feature) {
                   var interactions = feature.properties.white_search_rate;
@@ -206,6 +220,20 @@ block content
                   return { "color": rgb, "weight": 1, "opacity": 0.65 };
                 }
               });
+
+              var hispanicSearchLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  var interactions = feature.properties.hispanic_search_rate;
+
+                  if (interactions == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                  var t = Math.min(interactions / 10, 1);
+                  var r = 255 * t;
+                  var b = 0;
+                  var g = 0;
+                  var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
+                  return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                }
+              });              
 
               var blackDemoLayer = L.geoJson(!{JSON.stringify(geojson)},{
                 style: function(feature) {
@@ -263,7 +291,9 @@ block content
                 map.removeLayer(whiteSearchLayer);
                 map.removeLayer(blackSearchLayer);
                 map.removeLayer(asianSearchLayer);
-                map.removeLayer(otherSearchLayer);                
+                map.removeLayer(otherSearchLayer);
+                map.removeLayer(hispanicSearchLayer);
+                map.removeLayer(hispanicArrestsLayer);                
               }
 
               function calculateValue(t) {
@@ -358,7 +388,14 @@ block content
                 type='radio',
                 name='mapRadio',
                 onClick="removeLayers(); asianArrestsLayer.addTo(map);"
-              )  
+              )
+              | &nbsp;&nbsp;             
+              | Hispanic 
+              input(
+                type='radio',
+                name='mapRadio',
+                onClick="removeLayers(); hispanicArrestsLayer.addTo(map);"
+              )                
               | &nbsp;&nbsp;
               | Other 
               input(
@@ -387,7 +424,14 @@ block content
                 type='radio',
                 name='mapRadio',
                 onClick="removeLayers(); asianSearchLayer.addTo(map);"
-              )  
+              ) 
+              | &nbsp;&nbsp;             
+              | Hispanic 
+              input(
+                type='radio',
+                name='mapRadio',
+                onClick="removeLayers(); hispanicSearchLayer.addTo(map);"
+              )                
               | &nbsp;&nbsp;
               | Other 
               input(
