@@ -7,24 +7,47 @@ exports.averageExperienceList = function(req, res, next) {
     var query = req.pgQuery;
     var values = [];
     var sqlBase = 
-       'select municipality, avg(experience_rating) as averageExperience ' + 
-       'FROM court_feedback ' +
-       'GROUP BY municipality';
+        "select municipality, avg(ticket_feedback.experience_rating) as averageExperience, 'ticket' as feedbackType " +
+        "FROM ticket_feedback " +
+        "GROUP BY municipality " +
+        "UNION " +
+        "select municipality, avg(court_feedback.experience_rating) as averageExperience, 'court' as feedbackType " +
+        "FROM court_feedback " +
+        "GROUP BY municipality";
 
     console.log(req.body);
 
     query(sqlBase, values, function(err, rows, result) {
-        // format some dats and stuff.
         res.averages = rows;
         console.log(err);
         next();
     });
 },
 
+exports.averageTicketExperienceList = function(req, res, next) {
+    var query = req.pgQuery;
+    var values = [];
+    var sqlBase = 
+       'select municipality, avg(experience_rating) as averageExperience ' + 
+       'FROM ticket_feedback ' +
+       'GROUP BY municipality';
+
+    console.log(req.body);
+
+    query(sqlBase, values, function(err, rows, result) {
+        res.ticketAverages = rows;
+        console.log(err);
+        next();
+    });
+},
 
 // Query Citations
 exports.citationViolationList = function(req, res, next) {
     var query = req.pgQuery;
+    // Hack to allow query from query string as well as post
+    if (!req.body.lastName && req.query.lastName) {
+      req.body = req.query;
+    }
     var values = [req.body.lastName];
     var sqlBase = 
         'SELECT * FROM citations ' + 

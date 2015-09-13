@@ -10,9 +10,13 @@ router.get('/', function(req, res, next) {
 router.all('/citation', function(req, res, next) {
     middleware.citationViolationList(req, res, function(){
       console.log(res.citations);
-      res.render('citation', {
-        citations: res.citations
-      });
+      if(req.query.json) {
+        res.json(res.citations);
+      } else {
+        res.render('citation', {
+          citations: res.citations
+        });
+      }
     });
 });
 

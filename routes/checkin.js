@@ -118,4 +118,29 @@ router.all('/notify', function(req, res) {
   });
 });
 
+// Query Citations
+router.all('/addToQueue', function(req, res) {
+  var query  = req.pgQuery;
+  var params = req.query;
+  var values = [params.citationNo, params.courtLoc];
+  var insertQuery = 'INSERT INTO queue(citation_number, court_location) values ($1::text, $2::text)';
+  query(insertQuery, values, function(err, rows, result) {
+    req.twilio.messages.create({
+      to:   '3148524060',
+      from: twilioAccountPhone,
+      body: "STL Justice Portal: There are 2 people ahead of you at " + params.courtLoc + ", and the expected wait is 20 minutes.",
+    }, function(err, data) {
+        // Return a 500 if there was an error on Twilio's end
+        if (err) {
+            console.error(err);
+            res.send('{"failure" : "Unknown Error", "status" : 520 }');
+      });
+        }
+
+        // Otherwise, respond with 200 OK
+        res.status(200).send('{"success" : "Updated Successfully", "status" : 200}');
+    });
+  });
+});
+
 module.exports = router;

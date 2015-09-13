@@ -20,6 +20,7 @@ var search = require('./routes/search');
 var feedback = require('./routes/feedback');
 var checkin = require('./routes/checkin');
 var analytics = require('./routes/analytics');
+var comsvc = require('./routes/comsvc');
 var app = express();
 
 // view engine setup
@@ -48,6 +49,7 @@ app.use('/search', search);
 app.use('/feedback', feedback);
 app.use('/checkin', checkin);
 app.use('/analytics',analytics);
+app.use('/comsvc', comsvc);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

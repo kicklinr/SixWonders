@@ -29,7 +29,7 @@ block content
         .row
           .col-lg-12.text-center
             a.btn.btn-primary.btn-lg.btn-bluebg(href='/search') Back
-            a.btn.btn-default.btn-lg.btn-bluenobg(href='#') Help
+            a.btn.btn-default.btn-lg.btn-bluenobg(href='javascript:;') Help
   else
     each citation in citations
       section#citation.section.citation-section
@@ -44,7 +44,7 @@ block content
                     h3 Violation: 
                       samp #{citation.violation_number}
                     code #{citation.violation_description}
-                    if citation.warrant_status != 'FOO'
+                    if citation.warrant_status == 'TRUE'
                       br
                       code.label.label-danger
                         i.fa.fa-exclamation-triangle
@@ -62,9 +62,9 @@ block content
                         | Status:
                     dd
                       i.fa.fa-status
-                      if(citation.status = 'OPEN')
+                      if citation.status = 'OPEN'
                         span.label.label-warning OPEN
-                      else if(citation.status = 'CLOSED')
+                      else if citation.status = 'CLOSED'
                         span.label.label-success CLOSED
                       else
                         span.label.label-default #{citation.status}
@@ -87,15 +87,25 @@ block content
                       i.fa.fa-map-marker
                       a(href="http://maps.google.com/?q=#{citation.court_address}", target="_blank")
                         | #{citation.court_address}
+                    if citation.municipalcourturl && citation.municipalcourturl != 'none'
+                      dt
+                        h4.white
+                          | Court Website:
+                      dd
+                        i.fa.fa-link
+                        a(href="#{citation.municipalcourturl}", target="_blank")
+                          | #{citation.municipalcourturl}
                     button#feedbackBtn.btn.btn-labeled.btn-info(type='button' data-toggle="modal" data-citation="${citation_number}" data-target="#modal-#{citation_id}", style="margin-right:10px; margin-left:20px;")
                       span.btn-label
                         i.fa.fa-link
-                      | Give Feedback
-                    if citation.municipalcourturl && citation.municipalcourturl != 'none'
-                      button.btn.btn-labeled.btn-info(type='button', style="margin-right:10px; margin-left:20px;")&attributes({'href': citation.municipalcourturl})
+                      | Citation Feedback
+                    - var courtDate = Date.parse(citation.court_date);
+                    - var currentDate = new Date();
+                    if courtDate <= currentDate
+                      button#feedback2Btn.btn.btn-labeled.btn-info(type='button' data-toggle="modal" data-citation="${citation_number}" data-target="#modal2-#{citation_id}", style="margin-right:10px; margin-left:20px;")
                         span.btn-label
-                          i.fa.fa-external-link
-                        | Goto Court Website
+                          i.fa.fa-link
+                        | Court Feedback
 
               .row.overview
                 .col-md-4.user-pad.text-center
@@ -109,16 +119,16 @@ block content
                   h4 #{citation.total_cost}
             .col-md-2.user-menu-btns
               #responsive.btn-group-vertical.square
-                a.btn.btn-block.btn-default.active(href='#')
+                a.btn.btn-block.btn-default.active(href='javascript:;')
                   i.fa.fa-envelope.fa-2x
                   h3 Contact
-                a.btn.btn-block.btn-default(href='#')
+                a.btn.btn-block.btn-default(href='javascript:;')
                   i.fa.fa-map-marker.fa-2x
                   h3 Map
-                a.btn.btn-default(href='#')
+                a.btn.btn-default(href='javascript:;')
                   i.fa.fa-dollar.fa-2x
                   h3 Pay
-                a.btn.btn-default(href='#')
+                a.btn.btn-default(href='javascript:;')
                   i.fa.fa-question.fa-2x
                   h3 Help
             .col-md-4.user-menu.user-pad
@@ -157,7 +167,7 @@ block content
                         br
                         br
                   center
-                    button.btn.btn-lg.btn-labeled.btn-warning(type='button', href='#')
+                    button.btn.btn-lg.btn-labeled.btn-warning(type='button', href='javascript:;')
                       span.btn-label
                         i.fa.fa-bell-o
                       | Community Service Options
@@ -177,47 +187,105 @@ block content
                       li
                         i.fa.fa-phone
                         | 314-361-8834
-      .modal.fade(tabindex="-1", role="dialog", aria-labelledby="feedbackBtn", aria-hidden="true", id="modal-#{citation_id}")
+      .modal.fade.feedback-modal(tabindex="-1", role="dialog", aria-labelledby="feedbackBtn", aria-hidden="true", id="modal-#{citation_id}")
         .modal-dialog
           .modal-content
             .modal-header
               button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
-              h4.modal-title Modal Title
+              h4.modal-title Justice Experience Feedback
             .modal-body
               .banner-form
                 .form-title
-                  h2 Feedback
+                  p
+                    | By providing this 
+                    strong anonymous 
+                    | information about your citation experience, you are helping make your community a better place. We will aggregate this data and provide it to researchers, journalists, and civic activists. Thank you!
+                  dl.dl-horizontal
+                    dt
+                      h4 Citation #:
+                    dd
+                      samp #{citation.citation_number}
+                    dt
+                      h4 Citation Date:
+                    dd
+                      samp #{citation.citation_date}
                 .form-body
-                  form#banner-form.form(method='post', action='form.php')
+                  form#banner-form.form.feedback-form(method='post', action='form.php')
                   input#modal-violation(type="hidden", value="#{citation.violation_description}")
                   input#modal-dob(type="hidden", value="#{citation.date_of_birth}")
                   input#modal-municipality(type="hidden", value="#{citation.municipality}")
                   input#modal-dcity(type="hidden", value="#{citation.defendant_city}")
                   input#modal-dstate(type="hidden", value="#{citation.defendant_state}")
-                  select#modal-race
-                    each race, i in ["Ethnicity","Caucasian","African American","Hispanic","Asian","Native American","Klingon","Morlock"]
-                      option(value=i) #{race}
-                  select#modal-income
-                    each range, i in ["Annual Household Income","Less than $20,000","$20,000 to $34,999","$35,000 to $49,999","$50,000 to $74,999","$75,000 to $99,999","$75,000 to $99,999","$100,000 to $149,999","$150,000 or more"]
-                      option(value=i) #{range}
-                  dl.dl-horizontal
-                    dt
-                      h4
-                        | Citation #: 
-                    dd
-                      span.modal-citation
-                    dt
-                      h4
-                        | Citation Date: 
-                    dd
-                      span#modal-citationDate
-                  p Lorem ipsum
-                    .form-group
-                      input#banner-name.form-control(name='banner-name', type='text', required='', placeholder='Your Name')
-                    .form-group
-                      input#banner-email.form-control(name='banner-email', type='text', required='', placeholder='Your E-mail')
-                    button.btn.btn-default.btn-submit(type='submit') Subscribe
+                  .form-group
+                    select#modal-race.form-control
+                      each race, i in ["Your Ethnicity","Caucasian","African American","Hispanic","Asian","Native American","Klingon","Morlock"]
+                        option(value=i) #{race}
+                  .form-group
+                    select#modal-income.form-control
+                      each range, i in ["Annual Household Income","Less than $20,000","$20,000 to $34,999","$35,000 to $49,999","$50,000 to $74,999","$75,000 to $99,999","$75,000 to $99,999","$100,000 to $149,999","$150,000 or more"]
+                        option(value=i) #{range}
+                  .form-group
+                    select#modal-officer.form-control
+                      each race, i in ["Citing Officer's Ethnicity","Caucasian","African American","Hispanic","Asian","Native American","Klingon","Morlock"]
+                        option(value=i) #{race}
+                  .form-group
+                    select#modal-rating.form-control
+                      each rating, i in ["How fairly treated did you feel by this officer?","Very Fairly Treated","Somewhat Fairly Treated","Neither Fairly or Unfairly Treated","Somewhat Unfairly Treated","Very Unfairly Treated"]
+                        option(value=i) #{rating}
+                  .form-group
+                    input#modal2-comments.form-control(name='modal2-comments', type='text', required='', placeholder='Comments')
             .modal-footer
               button.btn.btn-default(type="button", data-dismiss="modal") Close
-              button.btn.btn-primary(type="button", data-dismiss="modal") Save Changes
+              button.btn.btn-primary.btn-submit#modal-submit.feedback-submit(type='submit' data-parent='modal-#{citation_id}') Submit Feedback
+      .modal.fade.feedback-modal(tabindex="-1", role="dialog", aria-labelledby="feedback2Btn", aria-hidden="true", id="modal2-#{citation_id}")
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(type="button", data-dismiss="modal", aria-hidden="true") &times;
+              h4.modal-title Court Experience Feedback
+            .modal-body
+              .banner-form
+                .form-title
+                  p
+                    | By providing this 
+                    strong anonymous 
+                    | information about your court experience, you are helping make your community a better place. We will aggregate this data and provide it to researchers, journalists, and civic activists. Thank you!
+                  dl.dl-horizontal
+                    dt
+                      h4 Citation #:
+                    dd
+                      samp #{citation.citation_number}
+                    dt
+                      h4 Citation Date:
+                    dd
+                      samp #{citation.citation_date}
+                .form-body
+                  form#modal2-form.form.feedback-form(method='post', action='form.php')
+                  input#modal2-violation(type="hidden", value="#{citation.violation_description}")
+                  input#modal2-dob(type="hidden", value="#{citation.date_of_birth}")
+                  input#modal2-municipality(type="hidden", value="#{citation.municipality}")
+                  input#modal2-dcity(type="hidden", value="#{citation.defendant_city}")
+                  input#modal2-dstate(type="hidden", value="#{citation.defendant_state}")
+                  .form-group
+                    select#modal2-race.form-control
+                      each race, i in ["Your Ethnicity","Caucasian","African American","Hispanic","Asian","Native American","Klingon","Morlock"]
+                        option(value=i) #{race}
+                  .form-group
+                    select#modal2-income.form-control
+                      each range, i in ["Annual Household Income","Less than $20,000","$20,000 to $34,999","$35,000 to $49,999","$50,000 to $74,999","$75,000 to $99,999","$75,000 to $99,999","$100,000 to $149,999","$150,000 or more"]
+                        option(value=i) #{range}
+                  .form-group
+                    select#modal2-officer.form-control
+                      each race, i in ["Judge's Ethnicity","Caucasian","African American","Hispanic","Asian","Native American","Klingon","Morlock"]
+                        option(value=i) #{race}
+                  .form-group
+                    select#modal2-rating.form-control(name='modal2-rating')
+                      each rating, i in ["How fairly treated did you feel at this court hearing?","Very Fairly Treated","Somewhat Fairly Treated","Neither Fairly or Unfairly Treated","Somewhat Unfairly Treated","Very Unfairly Treated"]
+                        option(value=i) #{rating}
+                  .form-group
+                    input#modal2-comments.form-control(name='modal2-comments', type='text', required='', placeholder='Comments')
+            .modal-footer
+              button.btn.btn-default(type="button", data-dismiss="modal") Close
+              button.btn.btn-primary.btn-submit#modal2-submit.feedback-submit(type='submit' data-parent='modal2-#{citation_id}') Submit Feedback
 
+              
