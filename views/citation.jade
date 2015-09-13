@@ -80,15 +80,15 @@ block content
                         |  Court Address:
                     dd
                       i.fa.fa-map-marker
-                      a(href="http://maps.google.com/?q=#{citation.court_address}", target="_blank")
-                        | #{citation.court_address}
+                        a(target='_blank')&attributes({'href': 'https://www.google.com/maps/place/' + citation.court_address_encoded})
+                          |  #{citation.court_address}, #{citation.municipality}
                     if citation.municipalcourturl && citation.municipalcourturl != 'none'
                       button.btn.btn-labeled.btn-info(type='button')&attributes({'href': citation.municipalcourturl})
                         span.btn-label
                           i.fa.fa-external-link
                         | Goto Court Website
                     else if citation.municipalwebsite && citation.municipalwebsite != 'none'
-                      button.btn.btn-labeled.btn-info(type='button')&attributes({'href': citation.municipalwebsite})
+                      a.btn.btn-labeled.btn-info(type='button')&attributes({'href': citation.municipalwebsite})
                         span.btn-label
                           i.fa.fa-external-link
                         | Goto Court Website
@@ -129,10 +129,7 @@ block content
                         | #{citation.court_location}
                       li
                         i.fa.fa-phone
-                        | #{citation.court_location}
-                      li
-                        i.fa.fa-envelope-o
-                        a(href='mailto:example@example.com') example@example.com
+                        | #{citation.phonenumber}
               .user-menu-content
                 h3
                   | Map
@@ -144,10 +141,16 @@ block content
                   | PAY YOUR FINE
                 .share-links
                   center
-                    button.btn.btn-lg.btn-labeled.btn-success(type='button', href='#', style='margin-bottom: 15px;')
-                      span.btn-label
-                        i.fa.fa-bell-o
-                      | Pay Online
+                    if citation.paymenturl != 'N/A'
+                      a.btn.btn-lg.btn-labeled.btn-success(type='button', style='margin-bottom: 15px;',target='_blank')&attributes({'href': citation.paymenturl})
+                        span.btn-label
+                          i.fa.fa-bell-o
+                        | Pay Online
+                    else 
+                        span
+                          | Online payment is not supported at this time.
+                        br
+                        br
                   center
                     button.btn.btn-lg.btn-labeled.btn-warning(type='button', href='#')
                       span.btn-label
