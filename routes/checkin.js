@@ -71,4 +71,34 @@ router.all('/notify', function(req, res) {
   });
 });
 
+// Query Citations
+router.all('/addToQueue', function(req, res) {
+  var query  = req.pgQuery;
+  var params = req.query;
+  var values = [params.citationNo, params.courtLoc];
+  var insertQuery = 'INSERT INTO queue(citation_number, court_location) values ($1::text, $2::text)';
+  query(insertQuery, values, function(err, rows, result) {
+    console.log(err);
+    console.log(rows);
+    console.log(result);
+    res.send((err === null) ? 
+     '{"success" : "Updated Successfully", "status" : 200}' :
+     '{"failure" : "Unknown Error", "status" : 520 }');
+    });
+  // req.twilio.messages.create({ 
+  //   to:   req.query.phone, 
+  //   from: twilioAccountPhone, 
+  //   body: "STL Justice Portal: There are 2 people ahead of you at BRENTWOOD MUNICIPAL COURT, and the expected wait is 20 minutes.",   
+  // }, function(err, data) {
+  //     // Return a 500 if there was an error on Twilio's end
+  //     if (err) {
+  //         console.error(err);
+  //         return res.status(500).send();
+  //     }
+
+  //     // Otherwise, respond with 200 OK
+  //     res.status(200).send('');
+  // });
+});
+
 module.exports = router;
