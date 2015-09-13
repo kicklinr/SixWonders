@@ -14,7 +14,8 @@ router.all('/citation', function(req, res, next) {
         res.json(res.citations);
       } else {
         res.render('citation', {
-          citations: res.citations
+          citations: res.citations,
+          totalFines: res.totalFines
         });
       }
     });
