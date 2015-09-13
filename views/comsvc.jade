@@ -1,0 +1,71 @@
+extends inc/layout
+
+block content
+  // Start Banner
+  #banner
+    .banner-inner
+      .container
+        .row
+          // Start Header Text
+          .col-md-8.header-text
+            h1
+              strong Payment Alternatives
+            p
+              | Through collaboration and much work with the Justice System we have been able to bring the opportunity for you some alternative payment options.
+          .col-lg-4.col-md-4
+  
+  section#search.section
+    .container
+      .row
+        p
+          |  Program Application:  If you are having financial issues and are unable to pay your fines and are willing to complete community service you may be able to complete community service in lieu of paying your fines.  Please fill out below application to for consideration into the program.  Once the form is complete allow 5-7 business days for the court the information and contact you.
+      hr
+      .row
+        form.form-inline(name='citation_no_form',method='post', action='/comsvc')
+          input(type='hidden', name='searchId', value='1')
+          .banner-optin
+            .row
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="search_id")
+                //-   | AND
+                input#lastName.form-control(name='lastName', type='text', required='', placeholder='Last Name')
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="driverLicense")
+                //-   | AND
+                input#citationNum.form-control(name='citationNum', type='text', placeholder='Citation #')
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="last_name")
+                //-   | AND
+                input#dob.form-control(name='dob', type='text', placeholder='Date Of Birth')
+              .form-group.col-md-3
+                button.btn.btn-default.btn-submit(type='submit') Find Your Citation
+      hr
+      .row
+        form.form-inline(name='first_last_dob_form',method='post', action='/comsvc')
+          input(type='hidden', name='searchId', value='3')
+          .banner-optin
+            .row
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="search_id")
+                //-   | AND
+                input#lastName.form-control(name='lastName', type='text', required='', placeholder='Last Name')
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="driverLicense")
+                //-   | AND
+                input#firstName.form-control(name='firstName', type='text', placeholder='First Name')
+              .form-group.col-md-3
+                //- .banner-form-label
+                //-   label(for="last_name")
+                //-   | AND
+                input#dob.form-control(name='dob', type='text', placeholder='Date Of Birth')
+              .form-group.col-md-3
+                button.btn.btn-default.btn-submit(type='submit') Find Your Citation
+      hr
+
+
+
