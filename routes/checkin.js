@@ -81,7 +81,7 @@ router.all('/addToQueue', function(req, res) {
     req.twilio.messages.create({
       to:   '3148524060',
       from: twilioAccountPhone,
-      body: "STL Justice Portal: There are 2 people ahead of you at BRENTWOOD MUNICIPAL COURT, and the expected wait is 20 minutes.",
+      body: "STL Justice Portal: There are 2 people ahead of you at " + params.courtLoc + ", and the expected wait is 20 minutes.",
     }, function(err, data) {
         // Return a 500 if there was an error on Twilio's end
         if (err) {
