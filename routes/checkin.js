@@ -86,11 +86,12 @@ router.all('/addToQueue', function(req, res) {
         // Return a 500 if there was an error on Twilio's end
         if (err) {
             console.error(err);
-            res.status(500).send();
+            res.send('{"failure" : "Unknown Error", "status" : 520 }');
+      });
         }
 
         // Otherwise, respond with 200 OK
-        res.status(200).send('');
+        res.status(200).send('{"success" : "Updated Successfully", "status" : 200}');
     });
   });
 });
