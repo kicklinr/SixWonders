@@ -46,7 +46,7 @@ block content
               var courtLayer = L.geoJson(!{JSON.stringify(geojson)},{
                 style: function(feature) {
                   for (var i = 0; i < averagesString.length; i++) {
-                    if (averagesString[i].municipality == feature.properties.court_name) {
+                    if (averagesString[i].municipality == feature.properties.court_name && averagesString[i].feedbacktype == 'court') {
                       var t = averagesString[i].averageexperience / 10;
                       var g = 255 *t;
                       var r = 255 * (1 - t);
@@ -59,14 +59,30 @@ block content
                 }
               }).addTo(map);
 
+              var ticketLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  for (var i = 0; i < averagesString.length; i++) {
+                    if (averagesString[i].municipality == feature.properties.court_name && averagesString[i].feedbacktype == 'ticket') {
+                      var t = averagesString[i].averageexperience / 10;
+                      var g = 255 *t;
+                      var r = 255 * (1 - t);
+                      var b = 0;
+                      var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
+                      return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                    }
+                  }
+                  return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                }
+              });
+
               var whiteDemoLayer = L.geoJson(!{JSON.stringify(geojson)},{
                 style: function(feature) {
                   if (feature.properties.white_vehicle_stops_as_percentage == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
 
                   var t = calculateValue(feature.properties.white_vehicle_stops_as_percentage - feature.properties.demographics_white_percentage);
                   var r = 255 * t * Math.round(t);
-                  var g = 255 * (1 - t) * Math.round(1 - t);
-                  var b = 0;
+                  var b = 255 * (1 - t) * Math.round(1 - t);
+                  var g = 0;
                   var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
                   return { "color": rgb, "weight": 1, "opacity": 0.65 };
                 }
@@ -79,8 +95,8 @@ block content
                   console.log(feature.properties.court_name + ": " + t);
 
                   var r = 255 * t * Math.round(t);
-                  var g = 255 * (1 - t) * Math.round(1 - t);
-                  var b = 0;
+                  var b = 255 * (1 - t) * Math.round(1 - t);
+                  var g = 0;
                   var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")"; 
                   return { "color": rgb, "weight": 1, "opacity": 0.65 };
                 }
@@ -93,18 +109,34 @@ block content
                   console.log(feature.properties.court_name + ": " + t);
 
                   var r = 255 * t * Math.round(t);
-                  var g = 255 * (1 - t) * Math.round(1 - t);
-                  var b = 0;
+                  var b = 255 * (1 - t) * Math.round(1 - t);
+                  var g = 0;
                   var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")"; 
                   return { "color": rgb, "weight": 1, "opacity": 0.65 };
                 }
               });
+
+              var otherDemoLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  if (feature.properties.demographics_other_percentage == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                  var t = calculateValue(feature.properties.other_vehicle_stops_as_percentage - feature.properties.demographics_other_percentage);
+                  console.log(feature.properties.court_name + ": " + t);
+
+                  var r = 255 * t * Math.round(t);
+                  var b = 255 * (1 - t) * Math.round(1 - t);
+                  var g = 0;
+                  var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")"; 
+                  return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                }
+              });              
 
               function removeLayers() {
                 map.removeLayer(courtLayer);
                 map.removeLayer(whiteDemoLayer);
                 map.removeLayer(blackDemoLayer);
                 map.removeLayer(asianDemoLayer);
+                map.removeLayer(ticketLayer);
+                map.removeLayer(otherDemoLayer);
               }
 
               function calculateValue(t) {
@@ -147,7 +179,7 @@ block content
               input(
                 type='radio', 
                 name='mapRadio',
-                onClick="removeLayers();"
+                onClick="removeLayers(); ticketLayer.addTo(map);"
               ) 
               br
               strong Traffic Stops Demographics: &nbsp;&nbsp;&nbsp;
@@ -171,6 +203,13 @@ block content
                 name='mapRadio',
                 onClick="removeLayers(); asianDemoLayer.addTo(map);"
               )
+              | &nbsp;&nbsp;
+              | Other 
+              input(
+                type='radio', 
+                name='mapRadio',
+                onClick="removeLayers(); otherDemoLayer.addTo(map);"
+              )              
       .row
         .col-lg-12.text-center
           a.btn.btn-primary.btn-lg.btn-bluebg(href='/search') Back
