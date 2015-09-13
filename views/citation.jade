@@ -68,9 +68,9 @@ block content
                         | Status:
                     dd
                       i.fa.fa-status
-                      if citation.status = 'OPEN'
+                      if citation.status == 'OPEN'
                         span.label.label-warning OPEN
-                      else if citation.status = 'CLOSED'
+                      else if citation.status == 'CLOSED'
                         span.label.label-success CLOSED
                       else
                         span.label.label-default #{citation.status}
