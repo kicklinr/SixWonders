@@ -3,17 +3,55 @@ var express = require('express');
 var router = express.Router();
 
 var twilioAccountPhone = '3145969058';
+var MAX_CONTINUATIONS = 3;
 
-router.all('/authorize', function(req, res) {
+router.all('/continuation', function(req, res) {
+  console.log("continuation ENTER ");
+  var query  = req.pgQuery;
   var params = req.query;
-  var sqlBase = 'SELECT * FROM citations 
-                 INNER JOIN violations 
-                   ON citations.citation_number = violations.citation_number 
-                 WHERE citations.last_name = $1::text';
-  
-  var count=2;
-  
+  var values = [params.citationNo];
+  var selectQuery = 'SELECT count from citation_continuation where citation_number = $1::text';
+  var updateQuery = 'UPDATE citation_continuation SET count = count + 1 where citation_number =  $1::text';
+  var insertQuery = 'INSERT INTO citation_continuation(citation_number, count) values ($1::text, $2::integer)';
+
+  console.log(params);
+  query(selectQuery, values, function(err, rows, result) {
+
+    if (rows != null && rows.length > 0) {
+      console.log("rows != null "  + rows);
+
+      // selectQuery will return rows if citation has previously been continued
+      var count = rows[0].count;
+      
+      // Cannot exceed 3 continuances (and, really, shouldn't be able to continue if jury trial)
+      if (count < MAX_CONTINUATIONS) {
+        query(updateQuery, values, function(err, rows, result) {
+          console.log('Citation ' + params.citationNo +  ' continued [' + count + ']');
+          res.send((err === null) ? 
+                   '{"success" : "Updated Successfully", "status" : 200}' : 
+                   '{"failure" : "Unknown Error", "status" : 520 }');
+        });
+      }
+      else {
+        // handle failure
+        console.log('Citation ' + params.citationNo + ' cannot be continued [' + count + ']');
+        res.send('{"failure" : "Unavailable For Legal Reasons", "status" : 451}');
+      }
+    }
+    else {
+      // Continue case
+      values.push(1);
+      query(insertQuery, values, function(err, rows, result) {
+        console.log('Citation ' + params.citationNo +  ' continued');
+        res.send((err === null) ? 
+                 '{"success" : "Updated Successfully", "status" : 200}' : 
+                 '{"failure" : "Unknown Error", "status" : 520 }');
+      });
+    }
+  });
 });
+
+
 
 // Query Citations
 router.all('/notify', function(req, res) {
