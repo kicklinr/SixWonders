@@ -187,7 +187,7 @@ block content
                       li
                         i.fa.fa-phone
                         | 314-361-8834
-      .modal.fade(tabindex="-1", role="dialog", aria-labelledby="feedbackBtn", aria-hidden="true", id="modal-#{citation_id}")
+      .modal.fade.feedback-modal(tabindex="-1", role="dialog", aria-labelledby="feedbackBtn", aria-hidden="true", id="modal-#{citation_id}")
         .modal-dialog
           .modal-content
             .modal-header
@@ -210,7 +210,7 @@ block content
                     dd
                       samp #{citation.citation_date}
                 .form-body
-                  form#banner-form.form(method='post', action='form.php')
+                  form#banner-form.form.feedback-form(method='post', action='form.php')
                   input#modal-violation(type="hidden", value="#{citation.violation_description}")
                   input#modal-dob(type="hidden", value="#{citation.date_of_birth}")
                   input#modal-municipality(type="hidden", value="#{citation.municipality}")
@@ -233,13 +233,11 @@ block content
                       each rating, i in ["How fairly treated did you feel by this officer?","Very Fairly Treated","Somewhat Fairly Treated","Neither Fairly or Unfairly Treated","Somewhat Unfairly Treated","Very Unfairly Treated"]
                         option(value=i) #{rating}
                   .form-group
-                    input#banner-name.form-control(name='banner-name', type='text', required='', placeholder='Your Name')
-                  .form-group
-                    input#banner-email.form-control(name='banner-email', type='text', required='', placeholder='Your E-mail')
+                    input#modal2-comments.form-control(name='modal2-comments', type='text', required='', placeholder='Comments')
             .modal-footer
               button.btn.btn-default(type="button", data-dismiss="modal") Close
-              button.btn.btn-primary.btn-submit#modal-submit(type='submit') Submit Feedback
-      .modal.fade(tabindex="-1", role="dialog", aria-labelledby="feedback2Btn", aria-hidden="true", id="modal2-#{citation_id}")
+              button.btn.btn-primary.btn-submit#modal-submit.feedback-submit(type='submit' data-parent='modal-#{citation_id}') Submit Feedback
+      .modal.fade.feedback-modal(tabindex="-1", role="dialog", aria-labelledby="feedback2Btn", aria-hidden="true", id="modal2-#{citation_id}")
         .modal-dialog
           .modal-content
             .modal-header
@@ -262,7 +260,7 @@ block content
                     dd
                       samp #{citation.citation_date}
                 .form-body
-                  form#modal2-form.form(method='post', action='form.php')
+                  form#modal2-form.form.feedback-form(method='post', action='form.php')
                   input#modal2-violation(type="hidden", value="#{citation.violation_description}")
                   input#modal2-dob(type="hidden", value="#{citation.date_of_birth}")
                   input#modal2-municipality(type="hidden", value="#{citation.municipality}")
@@ -288,6 +286,6 @@ block content
                     input#modal2-comments.form-control(name='modal2-comments', type='text', required='', placeholder='Comments')
             .modal-footer
               button.btn.btn-default(type="button", data-dismiss="modal") Close
-              button.btn.btn-primary.btn-submit#modal2-submit(type='submit') Submit Feedback
+              button.btn.btn-primary.btn-submit#modal2-submit.feedback-submit(type='submit' data-parent='modal2-#{citation_id}') Submit Feedback
 
               
