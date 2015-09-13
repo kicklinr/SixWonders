@@ -33,21 +33,21 @@ block content
           // End Side Image
         .divider50
         // Start Banner Optin Form
-        form#banner-form.form-inline(method='post', action='/citation')
+        form.form-inline(method='post', action='/citation')
           .banner-optin
             .row
               .form-group.col-md-2
-                input#banner-name.form-control(name='banner-name', type='text', required='', placeholder='Last Name')
+                input#banner-name.form-control(name='lastName', type='text', required='', placeholder='Last Name')
               .form-group.col-md-1.banner-form-label
                 label(for="banner-citation")
                   | AND
               .form-group.col-md-3
-                input#banner-citation.form-control(name='banner-citation', type='text', placeholder='Citation #')
+                input#banner-citation.form-control(name='citationNum', type='text', placeholder='Citation #')
               .form-group.col-md-1.banner-form-label
                 label(for="banner-id")
                   | OR
               .form-group.col-md-3
-                input#banner-id.form-control(name='banner-id', type='text', placeholder='Drivers License / ID #')
+                input#banner-id.form-control(name='driverLicense', type='text', placeholder='Drivers License / ID #')
               .form-group.col-md-2
                 button.btn.btn-default.btn-submit(type='submit') Find Your Citation
           .row
