@@ -5,11 +5,11 @@
 // Query Citations
 exports.averageExperienceList = function(req, res, next) {
     var query = req.pgQuery;
-    var values = [req.body.municipality];
+    var values = [];
     var sqlBase = 
-       'select avg(experience_rating), court_feedback.municipality FROM court_feedback ' +
-       'WHERE court_feedback.municipality = $1::text '
-       'GROUP BY court_feedback.municipality';
+       'select municipality, avg(experience_rating) as averageExperience ' + 
+       'FROM court_feedback ' +
+       'GROUP BY municipality';
 
     console.log(req.body);
 
