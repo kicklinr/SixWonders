@@ -44,7 +44,7 @@ block content
                     h3 Violation: 
                       samp #{citation.violation_number}
                     code #{citation.violation_description}
-                    if citation.warrant_status != 'FOO'
+                    if citation.warrant_status == 'TRUE'
                       br
                       code.label.label-danger
                         i.fa.fa-exclamation-triangle
@@ -62,9 +62,9 @@ block content
                         | Status:
                     dd
                       i.fa.fa-status
-                      if(citation.status = 'OPEN')
+                      if citation.status = 'OPEN'
                         span.label.label-warning OPEN
-                      else if(citation.status = 'CLOSED')
+                      else if citation.status = 'CLOSED'
                         span.label.label-success CLOSED
                       else
                         span.label.label-default #{citation.status}
