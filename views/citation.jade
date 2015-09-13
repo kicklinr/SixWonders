@@ -31,6 +31,12 @@ block content
             a.btn.btn-primary.btn-lg.btn-bluebg(href='/search') Back
             a.btn.btn-default.btn-lg.btn-bluenobg(href='javascript:;') Help
   else
+    section#totals
+      .container
+        .row
+          .col-md-4.offset-md-4
+            h3 Total Fines Owed: 
+              span#total-fines $100
     each citation in citations
       section#citation.section.citation-section
         .container

@@ -87,7 +87,6 @@ router.all('/addToQueue', function(req, res) {
         if (err) {
             console.error(err);
             res.send('{"failure" : "Unknown Error", "status" : 520 }');
-      });
         }
 
         // Otherwise, respond with 200 OK
