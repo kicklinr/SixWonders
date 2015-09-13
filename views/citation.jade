@@ -168,15 +168,15 @@ block content
                   | GET HELP
                 .share-links
                   center
-                    button.btn.btn-lg.btn-labeled.btn-success(type='button', href='#', style='margin-bottom: 15px;')
-                      span.btn-label
-                        i.fa.fa-bell-o
-                      | GET HELP HERE
-                  center
-                    button.btn.btn-lg.btn-labeled.btn-warning(type='button', href='#')
-                      span.btn-label
-                        i.fa.fa-bell-o
-                      | ALSO GET HELP HERE
+                    | For help contesting a ticket, contact:
+                    a(href="http://www.archcitydefenders.org/contact-us/", target="_blank"): img(src='http://03a5010.netsolhost.com/WordPress/wp-content/uploads/2014/07/ACD-BLANK-LOGO-small.jpg')
+                    ul.contact-list
+                      li
+                        i.fa.fa-envelope
+                        | mail@archcitydefenders.org
+                      li
+                        i.fa.fa-phone
+                        | 314-361-8834
       .modal.fade(tabindex="-1", role="dialog", aria-labelledby="feedbackBtn", aria-hidden="true", id="modal-#{citation_id}")
         .modal-dialog
           .modal-content
