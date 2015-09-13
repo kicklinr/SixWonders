@@ -69,34 +69,35 @@ router.all('/auth', function(req, res) {
     "AND citations.first_name = $2::text " + 
     "AND citations.last_name = $3::text  " +
     "AND to_char(citations.date_of_birth, 'MM/DD/YYYY') = $4::text ";
-
+    
+    var query2 = req.pgQuery;
+    var queueSql = "select * from queue " + 
+        "where upper(court_location) = upper($1::text)  " + 
+        "and appearance_date is null  " +
+        "and checkin_date >= date $2::date + time '00:00' " + 
+        "order by checkin_date asc  ";
   // console.log(citationSql);    
   
   // Query for citation information
   query(citationSql, values, function(err, rows, result) {
-    console.log(result);
-    var citationResult = result;
+    console.log(rows +"\n\n courtDate = " + courtDate + "\n courtLoc ="  + rows[0].court_location);
+    var citationResult = result.rows;
     // console.log(citationResult);
     
     var loc = rows[0].court_location;
-    
     var queueValues = [loc, courtDate];
-    var queueSql = "select * from queue " + 
-               "where upper(court_location) = upper($1::text)  " + 
-               "and appearance_time is null  " + 
-               "and court_date >= date $2::date + time '00:00'  " + 
-               "order by court_date asc  ";
-    res.json(citationResult);
-    // // Query for queue information
-    // query(queueSql, queueValues, function(err, rows, queueResult) {
-    //   // var results = {
-    //   //   'citation' : citationResult.rows, 
-    //   //   'queue' : queueResult 
-    //   // };
-    //   var citation = {citationResult, queueResult};
-    //   // console.log(results);
-    //   res.json(results);
-    // });
+    
+    // Query for queue information
+    query2(queueSql, queueValues, function(err, rows, queueResult) {
+      var results = {
+        'citation':citationResult, 
+        'queue':queueResult 
+      };
+      console.log(queueResult);
+
+      // console.log(results);
+      res.json(results);
+    });
   });
 });
 
@@ -123,18 +124,17 @@ router.all('/addToQueue', function(req, res) {
   var query  = req.pgQuery;
   var params = req.query;
   var values = [params.citationNo, params.courtLoc];
-  var insertQuery = 'INSERT INTO queue(citation_number, court_location) values ($1::text, $2::text)';
+  var insertQuery = 'INSERT INTO queue(citation_number, court_location) values ($1::text, upper($2::text)';
   query(insertQuery, values, function(err, rows, result) {
     req.twilio.messages.create({
       to:   '3148524060',
       from: twilioAccountPhone,
-      body: "STL Justice Portal: There are 2 people ahead of you at " + params.courtLoc + ", and the expected wait is 20 minutes.",
+      body: "STL Justice Portal: You are the next in line at " + changeCase.upperCase(params.courtLoc) + " MUNICIPAL COURT, and the expected wait is 5 minutes.",
     }, function(err, data) {
         // Return a 500 if there was an error on Twilio's end
         if (err) {
             console.error(err);
             res.send('{"failure" : "Unknown Error", "status" : 520 }');
-      });
         }
 
         // Otherwise, respond with 200 OK
