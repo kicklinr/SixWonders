@@ -80,8 +80,13 @@ exports.citationViolationList = function(req, res, next) {
                     total2 = new Number(rows[i].court_cost.substring(1));
                 }
 
-                    rows[i].total_cost = "$" + (total1 + total2).toFixed(2);
+                rows[i].total_cost = "$" + (total1 + total2).toFixed(2);
+
+                rows[i].court_location_encoded = '';
+                if (rows[i].court_address != null && rows[i].court_location) {
+                    rows[i].court_address_encoded = encodeURIComponent(rows[i].court_address + ", " + rows[i].court_location);
                 }
+            }
         }
 
         res.citations = rows;

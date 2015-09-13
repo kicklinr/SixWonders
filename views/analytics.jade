@@ -1,0 +1,44 @@
+extends inc/layout
+
+block content
+
+  // Start Banner
+  #banner
+    .banner-inner
+      .container
+        .row
+          // Start Header Text
+          .col-md-8.header-text
+            h1
+              strong Your
+              |  regional analytics
+            p
+              | View aggregate satisfaction data about the court system.
+          //- .col-lg-4.col-md-4
+          //-   img.img-responsive(src='img/3D_Judges_Gavel.jpg', alt='', title='')
+          // End Side Image
+  section#subscribe.section
+    .container
+      .row
+        .col-lg-12
+          .headline
+            h1
+              strong Map
+            p Text here
+            center
+              #map.map(style='width: 80%; height: 500px;')
+            script(type='text/javascript').
+              var map = L.map('map').setView([38.6272, -90.1978], 10);
+              L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+                maxZoom: 18,
+                id: 'hiddeninput.ciehpan8700elsgkg5g2pcdeb',
+                accessToken: 'pk.eyJ1IjoiaGlkZGVuaW5wdXQiLCJhIjoiY2llaHBhbm90MDBkenMzbTFiNTAxYXpuZCJ9.Qome22M5eUWQQnxC674IIQ'
+              }).addTo(map);
+            P
+              | 
+      .row
+        .col-lg-12.text-center
+          a.btn.btn-primary.btn-lg.btn-bluebg(href='/search') Back
+          a.btn.btn-default.btn-lg.btn-bluenobg(href='#') Help
+    

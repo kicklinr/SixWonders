@@ -8,9 +8,9 @@ var pg = require('pg-query');
 
 // Twilio Credentials 
 var accountSid = 'AC36a5b1edc49a8f0542cdd602ab925a83'; 
-var authToken = '62eafd50007bdc5cd48ba1ee4547a200'; 
+var authToken = '62eafd50007bdc5cd48ba1ee4547a200';   // TODO: Don't expose in production :)
 
-//require the Twilio module and create a REST client 
+// Require the Twilio module and create a REST client 
 var twilio = require('twilio')(accountSid, authToken); 
 
 pg.connectionParameters = "postgres://iltnencxwnrati:69VlHFO9ejuhDno8X21odCthhZ@ec2-107-21-105-116.compute-1.amazonaws.com:5432/d3vatqm4sct45j?ssl=true";
@@ -18,7 +18,8 @@ pg.connectionParameters = "postgres://iltnencxwnrati:69VlHFO9ejuhDno8X21odCthhZ@
 var routes = require('./routes/index');
 var search = require('./routes/search');
 var feedback = require('./routes/feedback');
-var sms = require('./routes/sms');
+var checkin = require('./routes/checkin');
+var analytics = require('./routes/analytics');
 var app = express();
 
 // view engine setup
@@ -45,7 +46,8 @@ app.use('/', routes);
 app.use('/citations', routes);
 app.use('/search', search);
 app.use('/feedback', feedback);
-app.use('/sms', sms);
+app.use('/checkin', checkin);
+app.use('/analytics',analytics);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
