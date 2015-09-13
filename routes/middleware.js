@@ -3,6 +3,26 @@
  */
 
 // Query Citations
+exports.averageExperienceList = function(req, res, next) {
+    var query = req.pgQuery;
+    var values = [req.body.municipality];
+    var sqlBase = 
+       'select avg(experience_rating), court_feedback.municipality FROM court_feedback ' +
+       'WHERE court_feedback.municipality = $1::text '
+       'GROUP BY court_feedback.municipality';
+
+    console.log(req.body);
+
+    query(sqlBase, values, function(err, rows, result) {
+        // format some dats and stuff.
+        res.citations = rows;
+        console.log(err);
+        next();
+    });
+},
+
+
+// Query Citations
 exports.citationViolationList = function(req, res, next) {
     var query = req.pgQuery;
     var values = [req.body.lastName];
