@@ -25,6 +25,10 @@ exports.averageExperienceList = function(req, res, next) {
 // Query Citations
 exports.citationViolationList = function(req, res, next) {
     var query = req.pgQuery;
+    // Hack to allow query from query string as well as post
+    if (!req.body.lastName && req.query.lastName) {
+      req.body = req.query;
+    }
     var values = [req.body.lastName];
     var sqlBase = 
         'SELECT * FROM citations ' + 
