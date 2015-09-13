@@ -26,14 +26,28 @@ block content
               strong Map
             p Text here
             center
-              #map.map(style='width: 80%; height: 500px;')
+              #map.map(style='width: 80%; height: 560px;')
             script(type='text/javascript').
-              var map = L.map('map').setView([38.6272, -90.1978], 10);
+              var map = L.map('map').setView([38.6272, -90.4], 10);
               L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
                 attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
                 maxZoom: 18,
                 id: 'hiddeninput.ciehpan8700elsgkg5g2pcdeb',
                 accessToken: 'pk.eyJ1IjoiaGlkZGVuaW5wdXQiLCJhIjoiY2llaHBhbm90MDBkenMzbTFiNTAxYXpuZCJ9.Qome22M5eUWQQnxC674IIQ'
+              }).addTo(map);
+              var mapStyle = {
+                "color": "#ff7800",
+                "weight": 1,
+                "opacity": 0.65
+              };
+              L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  if (feature.properties.court_name == 'Unincorporated') {
+                    return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                  } else {
+                    return { "color": "#ff7800", "weight": 1, "opacity": 0.65 };
+                  }
+                }
               }).addTo(map);
             P
               | 

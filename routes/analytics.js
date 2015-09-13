@@ -12,9 +12,19 @@ router.all('/', function(req, res, next) {
     obj = JSON.parse(data)
 
     console.log("Done loading file.")
-    res.render('analytics', { title: 'Analytics',
-      geojson : obj
-    });
+    
+    function getAverages() {
+      console.log("getting averages");
+
+      middleware.averageExperienceList(req, res, function() {
+        res.render('analytics', { title: 'Analytics',
+          geojson : obj,
+          averages : res.averages
+        });
+      });
+    }
+
+    getAverages();
   }
 
 });
