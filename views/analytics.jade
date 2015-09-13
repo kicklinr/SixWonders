@@ -23,8 +23,8 @@ block content
         .col-lg-12
           .headline
             h1
-              strong Map
-            p Text here
+              strong Regional Map
+            p Survey results and other local demographic information 
             center
               #map.map(style='width: 80%; height: 560px;')
             script(type='text/javascript').
@@ -339,7 +339,7 @@ block content
                 onClick="removeLayers(); ticketLayer.addTo(map);"
               ) 
               br
-              strong Traffic Stops Demographics: &nbsp;&nbsp;&nbsp;
+              strong Traffic Stops by Ethnicity: &nbsp;&nbsp;&nbsp;
               | White 
               input(
                 type='radio', 
@@ -368,7 +368,7 @@ block content
                 onClick="removeLayers(); otherDemoLayer.addTo(map);"
               )
               br
-              strong Arrest Demographics:  &nbsp;&nbsp;&nbsp; 
+              strong Arrests by Ethnicity:  &nbsp;&nbsp;&nbsp; 
               | White 
               input(
                 type='radio',
@@ -404,7 +404,7 @@ block content
                 onClick="removeLayers(); otherArrestsLayer.addTo(map);"
               ) 
               br
-              strong Search Demographics:  &nbsp;&nbsp;&nbsp; 
+              strong Searches by Ethnicity:  &nbsp;&nbsp;&nbsp; 
               | White 
               input(
                 type='radio',
