@@ -87,24 +87,16 @@ block content
                       i.fa.fa-map-marker
                       a(href="http://maps.google.com/?q=#{citation.court_address}", target="_blank")
                         | #{citation.court_address}
-                    button.btn.btn-labeled.btn-info(type='button', href='#')
-                      span.btn-label
-                        i.fa.fa-external-link
-                      | Goto Court Website
-                    button#feedbackBtn.btn.btn-labeled.btn-info(type='button' data-toggle="modal" data-citation="${citation_number}" data-target="#modal-#{citation_id}")
+                    button#feedbackBtn.btn.btn-labeled.btn-info(type='button' data-toggle="modal" data-citation="${citation_number}" data-target="#modal-#{citation_id}", style="margin-right:10px; margin-left:5px;")
                       span.btn-label
                         i.fa.fa-link
                       | Give Feedback
                     if citation.municipalcourturl && citation.municipalcourturl != 'none'
-                      button.btn.btn-labeled.btn-info(type='button')&attributes({'href': citation.municipalcourturl})
+                      button.btn.btn-labeled.btn-info(type='button', style="margin-right:10px; margin-left:5px;")&attributes({'href': citation.municipalcourturl})
                         span.btn-label
                           i.fa.fa-external-link
                         | Goto Court Website
-                    else if citation.municipalwebsite && citation.municipalwebsite != 'none'
-                      a.btn.btn-labeled.btn-info(type='button')&attributes({'href': citation.municipalwebsite})
-                        span.btn-label
-                          i.fa.fa-external-link
-                        | Goto Court Website
+
               .row.overview
                 .col-md-4.user-pad.text-center
                   h3 COURT DATE
