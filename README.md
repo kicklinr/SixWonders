@@ -20,3 +20,5 @@
 5. Run the app: `node ./bin/www`
 6. If doing frontend stuff, do `gulp` to process sass and js files, `gulp watch` to start a process that will watch for any changes and then run everything.
 
+# License
+[MIT License](https://github.com/kicklinr/SixWonders/tree/master/LICENSE)

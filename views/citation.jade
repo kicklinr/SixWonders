@@ -31,6 +31,12 @@ block content
             a.btn.btn-primary.btn-lg.btn-bluebg(href='/search') Back
             a.btn.btn-default.btn-lg.btn-bluenobg(href='javascript:;') Help
   else
+    section#totals
+      .container
+        .row.overview
+          .col-md-4.col-md-offset-8.user-pad.text-center.bg-info
+            h3 TOTAL FINES: 
+              samp#total-fines #{totalFines}
     each citation in citations
       section#citation.section.citation-section
         .container

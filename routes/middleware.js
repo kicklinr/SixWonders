@@ -91,6 +91,7 @@ exports.citationViolationList = function(req, res, next) {
         // format some dats and stuff.
 
         if (rows != null) {
+            var totalFineCost = 0;
             for (var i=0; i < rows.length; i++) {
                 var date = new String(rows[i].court_date);
                 if (date != null) {
@@ -123,6 +124,8 @@ exports.citationViolationList = function(req, res, next) {
                     total2 = new Number(rows[i].court_cost.substring(1));
                 }
 
+                totalFineCost += (total1 + total2);
+
                 rows[i].total_cost = "$" + (total1 + total2).toFixed(2);
 
                 rows[i].court_location_encoded = '';
@@ -133,6 +136,7 @@ exports.citationViolationList = function(req, res, next) {
         }
 
         res.citations = rows;
+        res.totalFines = "$" + totalFineCost.toFixed(2);
         console.log(err);
         next();
     });
