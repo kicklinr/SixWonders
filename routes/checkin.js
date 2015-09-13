@@ -129,7 +129,7 @@ router.all('/addToQueue', function(req, res) {
     req.twilio.messages.create({
       to:   '3148524060',
       from: twilioAccountPhone,
-      body: "STL Justice Portal: You are the next in line at " + changeCase.upperCase(params.courtLoc) + " MUNICIPAL COURT, and the expected wait is 5 minutes.",
+      body: "STL Justice Portal: You are the next in line at " + params.courtLoc + " MUNICIPAL COURT, and the expected wait is 5 minutes.",
     }, function(err, data) {
         // Return a 500 if there was an error on Twilio's end
         if (err) {
