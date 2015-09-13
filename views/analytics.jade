@@ -100,7 +100,7 @@ block content
                   var interactions = feature.properties.white_arrest_rate;
 
                   if (interactions == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
-                  var t = interactions / 10;
+                  var t = Math.min(interactions / 10, 1);
                   var r = 255 * t;
                   var b = 0;
                   var g = 0;
@@ -114,7 +114,7 @@ block content
                   var interactions = feature.properties.black_arrest_rate;
 
                   if (interactions == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
-                  var t = interactions / 10;
+                  var t = Math.min(interactions / 10, 1);
                   var r = 255 * t;
                   var b = 0;
                   var g = 0;
@@ -128,7 +128,7 @@ block content
                   var interactions = feature.properties.asian_arrest_rate;
 
                   if (interactions == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
-                  var t = interactions / 10;
+                  var t = Math.min(interactions / 10, 1);
                   var r = 255 * t;
                   var b = 0;
                   var g = 0;
@@ -142,7 +142,63 @@ block content
                   var interactions = feature.properties.other_arrest_rate;
 
                   if (interactions == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
-                  var t = interactions / 10;
+                  var t = Math.min(interactions / 10, 1);
+                  var r = 255 * t;
+                  var b = 0;
+                  var g = 0;
+                  var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
+                  return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                }
+              });
+
+              var whiteSearchLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  var interactions = feature.properties.white_search_rate;
+
+                  if (interactions == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                  var t = Math.min(interactions / 10, 1);
+                  var r = 255 * t;
+                  var b = 0;
+                  var g = 0;
+                  var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
+                  return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                }
+              });
+
+              var blackSearchLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  var interactions = feature.properties.black_search_rate;
+
+                  if (interactions == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                  var t = Math.min(interactions / 10, 1);
+                  var r = 255 * t;
+                  var b = 0;
+                  var g = 0;
+                  var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
+                  return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                }
+              });
+
+              var asianSearchLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  var interactions = feature.properties.asian_search_rate;
+
+                  if (interactions == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                  var t = Math.min(interactions / 10, 1);
+                  var r = 255 * t;
+                  var b = 0;
+                  var g = 0;
+                  var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
+                  return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                }
+              });
+
+              var otherSearchLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  var interactions = feature.properties.other_search_rate;
+
+                  if (interactions == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                  var t = Math.min(interactions / 10, 1);
                   var r = 255 * t;
                   var b = 0;
                   var g = 0;
@@ -204,6 +260,10 @@ block content
                 map.removeLayer(blackArrestsLayer);
                 map.removeLayer(asianArrestsLayer);
                 map.removeLayer(otherArrestsLayer);
+                map.removeLayer(whiteSearchLayer);
+                map.removeLayer(blackSearchLayer);
+                map.removeLayer(asianSearchLayer);
+                map.removeLayer(otherSearchLayer);                
               }
 
               function calculateValue(t) {
@@ -293,7 +353,7 @@ block content
                 onClick="removeLayers(); blackArrestsLayer.addTo(map);"
               )  
               | &nbsp;&nbsp;             
-              | Asian
+              | Asian 
               input(
                 type='radio',
                 name='mapRadio',
@@ -305,7 +365,36 @@ block content
                 type='radio',
                 name='mapRadio',
                 onClick="removeLayers(); otherArrestsLayer.addTo(map);"
-              )                        
+              ) 
+              br
+              strong Search Demographics:  &nbsp;&nbsp;&nbsp; 
+              | White 
+              input(
+                type='radio',
+                name='mapRadio',
+                onClick="removeLayers(); whiteSearchLayer.addTo(map);"
+              )
+              | &nbsp;&nbsp;
+              | Black 
+              input(
+                type='radio',
+                name='mapRadio',
+                onClick="removeLayers(); blackSearchLayer.addTo(map);"
+              )  
+              | &nbsp;&nbsp;             
+              | Asian 
+              input(
+                type='radio',
+                name='mapRadio',
+                onClick="removeLayers(); asianSearchLayer.addTo(map);"
+              )  
+              | &nbsp;&nbsp;
+              | Other 
+              input(
+                type='radio',
+                name='mapRadio',
+                onClick="removeLayers(); otherSearchLayer.addTo(map);"
+              )                                      
       .row
         .col-lg-12.text-center
           a.btn.btn-primary.btn-lg.btn-bluebg(href='/search') Back
