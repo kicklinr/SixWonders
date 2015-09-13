@@ -1,12 +1,13 @@
 // checkin.js
 var express = require('express');
 var router = express.Router();
+var middleware = require('./middleware');
 
 var twilioAccountPhone = '3145969058';
 var MAX_CONTINUATIONS = 3;
 
 router.all('/continuation', function(req, res) {
-  console.log("continuation ENTER ");
+  // console.log("continuation ENTER ");
   var query  = req.pgQuery;
   var params = req.query;
   var values = [params.citationNo];
@@ -51,7 +52,53 @@ router.all('/continuation', function(req, res) {
   });
 });
 
+/*
+ *  Authenticate user for court date checkin. 
+ *  Returns citation information for user and queue status for given court and date.
+ */
+router.all('/auth', function(req, res) {
+  console.log(req.query);
+  var query  = req.pgQuery;
+  var params = req.query;
+  var courtDate = '09/13/2015'; 
+  var values = [courtDate, params.firstName, params.lastName, params.dob]; // Assumes person only has one court date/municipality per day
+  var citationSql = 
+    "SELECT * FROM citations " +
+    "LEFT OUTER JOIN violations ON citations.citation_number = violations.citation_number " +
+    "WHERE to_char(citations.court_date, 'MM/DD/YYYY') =  $1::text  " +
+    "AND citations.first_name = $2::text " + 
+    "AND citations.last_name = $3::text  " +
+    "AND to_char(citations.date_of_birth, 'MM/DD/YYYY') = $4::text ";
 
+  // console.log(citationSql);    
+  
+  // Query for citation information
+  query(citationSql, values, function(err, rows, result) {
+    console.log(result);
+    var citationResult = result;
+    // console.log(citationResult);
+    
+    var loc = rows[0].court_location;
+    
+    var queueValues = [loc, courtDate];
+    var queueSql = "select * from queue " + 
+               "where upper(court_location) = upper($1::text)  " + 
+               "and appearance_time is null  " + 
+               "and court_date >= date $2::date + time '00:00'  " + 
+               "order by court_date asc  ";
+    res.json(citationResult);
+    // // Query for queue information
+    // query(queueSql, queueValues, function(err, rows, queueResult) {
+    //   // var results = {
+    //   //   'citation' : citationResult.rows, 
+    //   //   'queue' : queueResult 
+    //   // };
+    //   var citation = {citationResult, queueResult};
+    //   // console.log(results);
+    //   res.json(results);
+    // });
+  });
+});
 
 // Query Citations
 router.all('/notify', function(req, res) {

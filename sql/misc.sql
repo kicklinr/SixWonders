@@ -91,3 +91,18 @@ INSERT INTO income_ranges(lowerRange, upperRange, description)
 VALUES(100000, 149999, '$100,000 to $149,999');
 INSERT INTO income_ranges(lowerRange, upperRange, description)
 VALUES(150000, 999999, '$150,000 or more');
+
+
+create table queue (
+ id SERIAL PRIMARY KEY, 
+ citation_number TEXT, 
+ court_location TEXT, 
+ checkin_date TIMESTAMP,
+ appearance_date TIMESTAMP
+);
+insert into queue (citation_number, court_location, checkin_date) values('877826802','FENTON', date '2015-02-10' + time '03:00');
+  insert into queue (citation_number, court_location, checkin_date) values('877826802','FENTON', date '2015-02-10' + time '03:00');
+ select * from queue where court_location = UPPER($1::text) and checkin_date <= date '2015-11-30' + time '00:00';
+ insert into queue (citation_number, court_location, checkin_date) values('337299494','PASADENA PARK', date '2015-11-30' + time '10:05');
+insert into queue (citation_number, court_location, checkin_date) values('558696472',  'PASADENA PARK', date '2015-11-30' + time '10:21');
+insert into queue (citation_number, court_location, checkin_date) values('936819002','PASADENA PARK',date '2015-11-30' + time '10:22');
