@@ -2,10 +2,12 @@ package com.sixwonders.courtkiosk;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
@@ -16,6 +18,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.microblink.activity.Pdf417ScanActivity;
+import com.microblink.recognizers.barcode.pdf417.Pdf417RecognizerSettings;
+import com.microblink.recognizers.settings.RecognizerSettings;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
@@ -29,6 +35,51 @@ public class CheckInActivity extends ActionBarActivity implements AsyncResponse 
     private Button btnInfoSubmit;
     private Activity activity;
     private DatePicker datePicker;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 888) {
+            if (resultCode == Pdf417ScanActivity.RESULT_OK && data != null) {
+                // perform processing of the data here
+
+                // for example, obtain parcelable recognition result
+                Bundle extras = data.getExtras();
+                Parcelable[] resultArray = data.getParcelableArrayExtra(Pdf417ScanActivity.EXTRAS_RECOGNITION_RESULT_LIST);
+                // Each element in resultArray inherits BaseRecognitionResult class and
+                // represents the scan result of one of activated recognizers that have
+                // been set up. More information about this can be found in
+                // "Recognition settings and results" chapter
+                ConnectionUtil connectionUtil = new ConnectionUtil();
+                connectionUtil.authCall("Todd", "Lewis", "05/21/1953", (AsyncResponse)activity);
+            }
+        }
+    }
+
+    private RecognizerSettings[] setupSettingsArray() {
+        Pdf417RecognizerSettings sett = new Pdf417RecognizerSettings();
+        // disable scanning of white barcodes on black background
+        sett.setInverseScanning(false);
+        // allow scanning of barcodes that have invalid checksum
+        sett.setUncertainScanning(true);
+        // disable scanning of barcodes that do not have quiet zone
+        // as defined by the standard
+        sett.setNullQuietZoneAllowed(false);
+
+        // now add sett to recognizer settings array that is used to configure
+        // recognition
+        return new RecognizerSettings[] { sett };
+    }
+    private void callToScan(){
+        Intent intent = new Intent(this, Pdf417ScanActivity.class);
+        intent.putExtra(Pdf417ScanActivity.EXTRAS_LICENSE_KEY, "6HOO5ENX-W626VWJ2-KPN7ZB2A-76COKQH7-QTSUB74E-4VAP7BHF-ID7YJZKA-76CLJ45M");
+
+        RecognizerSettings[] settArray = setupSettingsArray();
+        intent.putExtra(Pdf417ScanActivity.EXTRAS_RECOGNIZER_SETTINGS_ARRAY, settArray);
+
+// Starting Activity
+        startActivityForResult(intent, 888);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +88,14 @@ public class CheckInActivity extends ActionBarActivity implements AsyncResponse 
         view =LayoutInflater.from(this).inflate(R.layout.activity_check_in, null);
         btnInfoSubmit = (Button) view.findViewById(R.id.btnInfoSubmit);
 
+        btnIdScan = (Button) view.findViewById(R.id.btnLicenseScan);
+
+        btnIdScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callToScan();
+            }
+        });
 
         btnInfoSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -13,7 +13,7 @@
     <string name="dob">Date of birth</string>
     <string name="licenseNum">License number</string>
     <string name="submit">Submit</string>
-    <string name="thanksForRegistering">You have been checked in!\n\nThere are 2 people ahead of you in line\nYour estimated wait time is 40 minutes.\n</string>
+    <string name="thanksForRegistering">You have been checked in!\n\nThere is one person ahead of you in line\nYour estimated wait time is 5 minutes.\n</string>
     <string name="notificationHeader">To receive notifications before your court time</string>
     <string name="continuationHeader">Would you like to request a continuation?</string>
     <string name="courtTime">Your court time is </string>
