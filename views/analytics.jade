@@ -43,7 +43,7 @@ block content
 
               var averagesString = !{JSON.stringify(averages)};
 
-              L.geoJson(!{JSON.stringify(geojson)},{
+              var courtLayer = L.geoJson(!{JSON.stringify(geojson)},{
                 style: function(feature) {
                   for (var i = 0; i < averagesString.length; i++) {
                     if (averagesString[i].municipality == feature.properties.court_name) {
@@ -52,15 +52,125 @@ block content
                       var r = 255 * (1 - t);
                       var b = 0;
                       var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
-                      console.log(rgb);
                       return { "color": rgb, "weight": 1, "opacity": 0.65 };
                     }
                   }
                   return { "color": "#000000", "weight": 1, "opacity": 0.65 };
                 }
               }).addTo(map);
+
+              var whiteDemoLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  if (feature.properties.white_vehicle_stops_as_percentage == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+
+                  var t = calculateValue(feature.properties.white_vehicle_stops_as_percentage - feature.properties.demographics_white_percentage);
+                  var r = 255 * t * Math.round(t);
+                  var g = 255 * (1 - t) * Math.round(1 - t);
+                  var b = 0;
+                  var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
+                  return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                }
+              });
+
+              var blackDemoLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  if (feature.properties.demographics_black_percentage == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                  var t = calculateValue(feature.properties.black_vehicle_stops_as_percentage - feature.properties.demographics_black_percentage);
+                  console.log(feature.properties.court_name + ": " + t);
+
+                  var r = 255 * t * Math.round(t);
+                  var g = 255 * (1 - t) * Math.round(1 - t);
+                  var b = 0;
+                  var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")"; 
+                  return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                }
+              });
+
+              var asianDemoLayer = L.geoJson(!{JSON.stringify(geojson)},{
+                style: function(feature) {
+                  if (feature.properties.demographics_asian_percentage == '') return { "color": "#000000", "weight": 1, "opacity": 0.65 };
+                  var t = calculateValue(feature.properties.asian_vehicle_stops_as_percentage - feature.properties.demographics_asian_percentage);
+                  console.log(feature.properties.court_name + ": " + t);
+
+                  var r = 255 * t * Math.round(t);
+                  var g = 255 * (1 - t) * Math.round(1 - t);
+                  var b = 0;
+                  var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")"; 
+                  return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                }
+              });
+
+              function removeLayers() {
+                map.removeLayer(courtLayer);
+                map.removeLayer(whiteDemoLayer);
+                map.removeLayer(blackDemoLayer);
+                map.removeLayer(asianDemoLayer);
+              }
+
+              function calculateValue(t) {
+                if (t < -7.5) {
+                  return 0;
+                } else if (t < -5) {
+                  return 0.10;
+                } else if(t < -2.5) {
+                  return 0.20;
+                } else if (t < -1) {
+                  return 0.3;
+                } else if (t < -.5) {
+                  return 0.4;
+                } else if (t < .5) {
+                  return 0.5;
+                } else if (t < 1) {
+                  return 0.6;
+                } else if (t < 2.5) {
+                  return 0.70;
+                } else if (t < 5) {
+                  return .80;
+                } else if (t < 7.5) {
+                  return .9;
+                } else {
+                  return 1;
+                }
+              }
+
             P
-              | 
+              strong Survey-based Satisfaction Index: &nbsp;&nbsp;&nbsp;
+              | Court 
+              input(
+                type='radio', 
+                name='mapRadio', 
+                onClick="removeLayers(); courtLayer.addTo(map);",
+                checked
+              )
+              | &nbsp;&nbsp;
+              | Ticket 
+              input(
+                type='radio', 
+                name='mapRadio',
+                onClick="removeLayers();"
+              ) 
+              br
+              strong Traffic Stops Demographics: &nbsp;&nbsp;&nbsp;
+              | White 
+              input(
+                type='radio', 
+                name='mapRadio',
+                onClick="removeLayers(); whiteDemoLayer.addTo(map);"
+              )
+              | &nbsp;&nbsp;
+              | Black 
+              input(
+                type='radio', 
+                name='mapRadio',
+                onClick="removeLayers(); blackDemoLayer.addTo(map);"
+              )
+              | &nbsp;&nbsp;
+              | Asian 
+              input(
+                type='radio', 
+                name='mapRadio',
+                onClick="removeLayers(); asianDemoLayer.addTo(map);"
+              )
       .row
         .col-lg-12.text-center
           a.btn.btn-primary.btn-lg.btn-bluebg(href='/search') Back
