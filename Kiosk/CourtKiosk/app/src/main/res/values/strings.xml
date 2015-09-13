@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CourtKiosk</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="welcome">Welcome to the Chesterfield Court</string>
+    <string name="licenseScanButton">Scan back of personal ID</string>
+    <string name="or">or</string>
+    <string name="citationNumber">Citation number</string>
+    <string name="lastName">Last name</string>
+    <string name="firstName">First name</string>
+    <string name="dob">Date of birth</string>
+    <string name="licenseNum">License number</string>
+    <string name="submit">Submit</string>
+    <string name="thanksForRegistering">You have been checked in!\n\nThere are 2 people ahead of you in line\nYour estimated wait time is 40 minutes.\n</string>
+    <string name="notificationHeader">To receive notifications before your court time</string>
+    <string name="continuationHeader">Would you like to request a continuation?</string>
+    <string name="courtTime">Your court time is </string>
+    <string name="emailHint">Email address</string>
+    <string name="phoneHint">Mobile phone number</string>
+    <string name="continuationInfoAlertHeader">Continuation Info</string>
+    <string name="continuationInfo">An additional $15 will be added to your current court costs. Your court date will be moved to a future date.</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="btnOk">Okay</string>
+    <string name="continueText">Continue</string>
+    <string name="andOr">and/or</string>
+    <string name="notificationQuestion">Would you like to receive reminders of your court time?</string>
+    <string name="title_activity_completed_registration">CompletedRegistrationActivity</string>
+    <string name="notificationSignUp">Notification sign up</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+    <string name="userInformationInput">Information input</string>
+    <string name="dobLabel">Date of birth:</string>
+    <string name="continuationCompleteHeader">Continuation approved</string>
+    <string name="continuationComplete">$15 has been added to your court fees.\nYour new court date is 9/30/2015.\nSee you then!</string>
+    <string name="continuationFailedHeader">Continuation denied</string>
+    <string name="continuationFailed">You have reached the maximum number of continuations.\nPlease see a court clerk.</string>
+    <string name="manualEntryBtn">Manually enter information</string>
+    <string name="newUser">New user</string>
+
+</resources>
