@@ -40,13 +40,23 @@ block content
                 "weight": 1,
                 "opacity": 0.65
               };
+
+              var averagesString = !{JSON.stringify(averages)};
+
               L.geoJson(!{JSON.stringify(geojson)},{
                 style: function(feature) {
-                  if (feature.properties.court_name == 'Unincorporated') {
-                    return { "color": "#000000", "weight": 1, "opacity": 0.65 };
-                  } else {
-                    return { "color": "#ff7800", "weight": 1, "opacity": 0.65 };
+                  for (var i = 0; i < averagesString.length; i++) {
+                    if (averagesString[i].municipality == feature.properties.court_name) {
+                      var t = averagesString[i].averageexperience / 10;
+                      var g = 255 *t;
+                      var r = 255 * (1 - t);
+                      var b = 0;
+                      var rgb = "rgb(" + Math.floor(r) + ", " + Math.floor(g) + ", " + Math.floor(b) + ")";
+                      console.log(rgb);
+                      return { "color": rgb, "weight": 1, "opacity": 0.65 };
+                    }
                   }
+                  return { "color": "#000000", "weight": 1, "opacity": 0.65 };
                 }
               }).addTo(map);
             P
