@@ -33,10 +33,10 @@ block content
   else
     section#totals
       .container
-        .row
-          .col-md-4.offset-md-4
-            h3 Total Fines Owed: 
-              span#total-fines $100
+        .row.overview
+          .col-md-4.col-md-offset-8.user-pad.text-center.bg-info
+            h3 TOTAL FINES: 
+              samp#total-fines $100
     each citation in citations
       section#citation.section.citation-section
         .container
