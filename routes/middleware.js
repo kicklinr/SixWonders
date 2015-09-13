@@ -15,7 +15,7 @@ exports.averageExperienceList = function(req, res, next) {
 
     query(sqlBase, values, function(err, rows, result) {
         // format some dats and stuff.
-        res.citations = rows;
+        res.averages = rows;
         console.log(err);
         next();
     });
