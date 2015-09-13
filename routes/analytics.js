@@ -14,14 +14,14 @@ router.all('/', function(req, res, next) {
     console.log("Done loading file.")
     
     function getAverages() {
-      console.log("getting averages")
+      console.log("getting averages");
 
-      middleware.averageExperienceList(req, res, function(){
+      middleware.averageExperienceList(req, res, function() {
         res.render('analytics', { title: 'Analytics',
           geojson : obj,
-          averages : 
+          averages : res.averages
         });
-      }
+      });
     }
 
     getAverages();
