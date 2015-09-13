@@ -474,6 +474,7 @@ a.scroll-up:focus { -moz-transform: scale(1.1, 1.1); -ms-transform: scale(1.1, 1
   .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus { color: #00A8D6;}
   .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus  { color: #00A8D6;}
   .menu-right {float: none;}
+  .navbar-brand {font-size: 1.5em !important;}
   p {}
   h4 {}
   hr { margin: 15px 0;}
@@ -497,7 +498,7 @@ a.scroll-up:focus { -moz-transform: scale(1.1, 1.1); -ms-transform: scale(1.1, 1
   .navbar-inverse .navbar-nav > li > a {color: #1a1a1a;}
   .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus { color: #00A8D6;}
   .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus  { color: #00A8D6;}
-  
+  .navbar-brand {font-size: 1.5em !important;}
   .menu-right {float: none;}
   
   body {font-size: 13px;}
