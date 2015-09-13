@@ -35,6 +35,7 @@
     "node-inspector": "^0.12.3",
     "pg": "4.4.1",
     "pg-query": "^0.11.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "twilio": "^2.3.0"
   }
 }
